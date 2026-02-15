@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://cq7xga2ltrxjl"]
 
+[ext_resource type="Script" uid="uid://cbvh4w77a0ty3" path="res://WallsLine2d.cs" id="1_wbfu4"]
+
 [node name="Node2D" type="Node2D" unique_id=215686828]
+
+[node name="WallsLine2D" type="Line2D" parent="." unique_id=737532954]
+points = PackedVector2Array(0, 0, 1600, 0, 1600, 800, 0, 800, 0, 0)
+script = ExtResource("1_wbfu4")
