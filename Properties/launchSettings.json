@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "BrackeysGameJam2026-1": {
+      "commandName": "Project"
+    },
+    "GD Debug": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Godot\\Godot.Net4.6\\Godot_v4.6-stable_mono_win64.exe",
+      "commandLineArgs": "--path . --debug",
+      "workingDirectory": ".",
+      "nativeDebugging": true
+    }
+  }
+}

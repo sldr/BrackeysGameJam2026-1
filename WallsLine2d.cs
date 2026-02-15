@@ -3,6 +3,11 @@ using System;
 
 public partial class WallsLine2d : Line2D
 {
+    public override void _Ready()
+    {
+        base._Ready();
+    }
+
     public override void _Draw()
     {
         base._Draw();
@@ -18,8 +23,4 @@ public partial class WallsLine2d : Line2D
         base._Process(delta);
     }
 
-    public override void _Ready()
-    {
-        base._Ready();
-    }
 }

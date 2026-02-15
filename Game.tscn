@@ -12,4 +12,5 @@ script = ExtResource("1_wbfu4")
 [node name="Player" parent="." unique_id=1355204698 instance=ExtResource("2_xkndl")]
 position = Vector2(358, 212)
 scale = Vector2(2, 2)
-script = null
+TakeoffMaxHeight = 300.0
+TakeoffAnimationSpeed = 1.0
