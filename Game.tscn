@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://bj48a6oi8uist"]
 
-[ext_resource type="Script" uid="uid://cbvh4w77a0ty3" path="res://WallsLine2d.cs" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://dqaj3nnm2rxv" path="res://Game.cs" id="1_sb48q"]
 [ext_resource type="PackedScene" uid="uid://vrddq0nupfxh" path="res://Player.tscn" id="2_xkndl"]
+[ext_resource type="PackedScene" uid="uid://c0anqef84k7er" path="res://Pivot.tscn" id="4_t88pq"]
 
-[node name="Node2D" type="Node2D" unique_id=215686828]
+[node name="GameNode2D" type="Node2D" unique_id=215686828]
+script = ExtResource("1_sb48q")
 
-[node name="WallsLine2D" type="Line2D" parent="." unique_id=737532954]
-points = PackedVector2Array(0, 0, 1600, 0, 1600, 800, 0, 800, 0, 0)
-script = ExtResource("1_wbfu4")
+[node name="Pivot" parent="." unique_id=105369423 instance=ExtResource("4_t88pq")]
 
 [node name="Player" parent="." unique_id=1355204698 instance=ExtResource("2_xkndl")]
-position = Vector2(358, 212)
+position = Vector2(50, 36)
 scale = Vector2(2, 2)
 TakeoffMaxHeight = 300.0
 TakeoffAnimationSpeed = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1442786010]
+
+[connection signal="Rotate" from="." to="Pivot" method="_on_game_node_2d_rotate"]

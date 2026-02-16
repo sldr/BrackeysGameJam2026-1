@@ -242,4 +242,13 @@ public partial class Test : StateManager
     }
 
     protected override void ExitState(State state) { }
+
+    public override void _Ready()
+    {
+        this.InitializeManagers();
+    }
+    public override void _Draw()
+    {
+        base._Draw();
+    }
 }

@@ -95,4 +95,5 @@ public partial class StateManager : CharacterBody2D
     }
 
     protected virtual void OnAnimationFinishedHandler(string animName) { }
+
 }
