@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://dqf3pr3780k6o"]
+
+[ext_resource type="Script" uid="uid://ce27k30mjj22n" path="res://Scripts/OptRes.cs" id="1_2hgns"]
+
+[resource]
+script = ExtResource("1_2hgns")
+MainVolMuted = true

@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://c0pjw6w4yueso"]
+
+[ext_resource type="Script" uid="uid://0alomnp7rb0v" path="res://Scripts/Options.cs" id="1_yia4p"]
+
+[node name="Options" type="Node2D" unique_id=1222494674]
+script = ExtResource("1_yia4p")
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=259235092]
+follow_viewport_enabled = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Menu" unique_id=796864914]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/AspectRatioContainer" unique_id=227322389]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu/AspectRatioContainer/CenterContainer" unique_id=1008551283]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer" unique_id=262657]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 14
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=2101654096]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=193215806]
+layout_mode = 2
+text = "O P T I O N S"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1568414072]
+layout_mode = 2
+current_tab = 0
+clip_tabs = false
+use_hidden_tabs_for_min_size = true
+
+[node name="Audio" type="MarginContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=863104578]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio" unique_id=537877048]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=1916846195]
+layout_mode = 2
+text = "Main Volume"
+
+[node name="MainVol" type="HBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=1530826073]
+layout_mode = 2
+
+[node name="MainVolSlider" type="HSlider" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MainVol" unique_id=1562259810]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -80.0
+max_value = 6.0
+
+[node name="MainVolMute" type="CheckBox" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MainVol" unique_id=349040682]
+layout_mode = 2
+text = "Mute"
+
+[node name="MainVolReset" type="Button" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MainVol" unique_id=552294349]
+layout_mode = 2
+text = "Reset"
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=369174542]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=551353882]
+layout_mode = 2
+text = "Sfx Volume"
+
+[node name="SfxVol" type="HBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=775668879]
+layout_mode = 2
+
+[node name="SfxVolSlider" type="HSlider" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/SfxVol" unique_id=1638726609]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = -80.0
+max_value = 6.0
+
+[node name="SfxVolMute" type="CheckBox" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/SfxVol" unique_id=457407409]
+layout_mode = 2
+text = "Mute"
+
+[node name="SfxVolReset" type="Button" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/SfxVol" unique_id=774334570]
+layout_mode = 2
+text = "Reset"
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=633783939]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=1266185034]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVol" type="HBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" unique_id=707055552]
+layout_mode = 2
+
+[node name="MusicVolSlider" type="HSlider" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MusicVol" unique_id=1278405184]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = -80.0
+max_value = 6.0
+
+[node name="MusicVolMute" type="CheckBox" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MusicVol" unique_id=1395458295]
+layout_mode = 2
+text = "Mute"
+
+[node name="MusicVolReset" type="Button" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MusicVol" unique_id=1830706162]
+layout_mode = 2
+text = "Reset"
+
+[node name="Gameplay" type="MarginContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=1010152439]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay" unique_id=1596529490]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer" unique_id=1606842581]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer" unique_id=646533974]
+layout_mode = 2
+text = "Movement Speed"
+
+[node name="MovementSpeedBox" type="SpinBox" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer" unique_id=88012976]
+layout_mode = 2
+max_value = 5000.0
+
+[node name="MovementSpeedReset" type="Button" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer" unique_id=1160096799]
+layout_mode = 2
+text = "Reset"
+
+[node name="HSeparator" type="HSeparator" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer" unique_id=1789189023]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer" unique_id=432304709]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer2" unique_id=90022116]
+layout_mode = 2
+text = "Ball Speed"
+
+[node name="BallSpeedBox" type="SpinBox" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer2" unique_id=243143581]
+layout_mode = 2
+max_value = 5000.0
+
+[node name="BallSpeedReset" type="Button" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer2" unique_id=681732425]
+layout_mode = 2
+text = "Reset
+"
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer" unique_id=23702653]
+layout_mode = 2
+
+[node name="Visuals" type="MarginContainer" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=1022993080]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="HSeparator5" type="HSeparator" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=428801439]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1545162790]
+layout_mode = 2
+text = "Save"
+
+[node name="Exit" type="Button" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=962080998]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="HSeparator6" type="HSeparator" parent="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1218253935]
+layout_mode = 2
+
+[connection signal="value_changed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MainVol/MainVolSlider" to="." method="_on_main_vol_slider_value_changed"]
+[connection signal="toggled" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MainVol/MainVolMute" to="." method="_on_main_vol_mute_toggled"]
+[connection signal="pressed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MainVol/MainVolReset" to="." method="_on_main_vol_reset_pressed"]
+[connection signal="value_changed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/SfxVol/SfxVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="toggled" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/SfxVol/SfxVolMute" to="." method="_on_sfx_vol_mute_toggled"]
+[connection signal="pressed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/SfxVol/SfxVolReset" to="." method="_on_sfx_vol_reset_pressed"]
+[connection signal="value_changed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MusicVol/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="toggled" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MusicVol/MusicVolMute" to="." method="_on_music_vol_mute_toggled"]
+[connection signal="pressed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/MusicVol/MusicVolReset" to="." method="_on_music_vol_reset_pressed"]
+[connection signal="value_changed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer/MovementSpeedBox" to="." method="_on_movement_speed_box_value_changed"]
+[connection signal="pressed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer/MovementSpeedReset" to="." method="_on_movement_speed_reset_pressed"]
+[connection signal="value_changed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer2/BallSpeedBox" to="." method="_on_ball_speed_box_value_changed"]
+[connection signal="pressed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TabContainer/Gameplay/VBoxContainer/HBoxContainer2/BallSpeedReset" to="." method="_on_ball_speed_reset_pressed"]
+[connection signal="pressed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
