@@ -6,7 +6,7 @@ public partial class Pivot : Node2D
 
     private Node2D PlayerNode;
     private Node2D childRotateNode2D;
-    private Tween rotTween;
+    private Tween rotTween = null;
     private int rot = 0;
 
     public void SetPlayer(Node2D PlayerNode)
@@ -27,6 +27,10 @@ public partial class Pivot : Node2D
 
     public void _on_game_node_2d_rotate(bool left)
     {
+        if (this.rotTween != null) {
+            GD.Print("No rotate during rotate");
+            return;
+        }
         GD.Print("Player Position: ", PlayerNode.Position);
         Vector2 adjustPosition = this.PlayerNode.GlobalPosition - this.GlobalPosition;
         this.GlobalPosition = this.GlobalPosition + adjustPosition;
@@ -45,5 +49,6 @@ public partial class Pivot : Node2D
     private void RotTween_Finished()
     {
         GD.Print("Finished rot", this.childRotateNode2D.Position);
+        this.rotTween = null;
     }
 }
