@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c0anqef84k7er"]
 
-[ext_resource type="Script" uid="uid://bt3q3pey8fqfj" path="res://Pivot.cs" id="2_h22b5"]
+[ext_resource type="Script" uid="uid://bt3q3pey8fqfj" path="res://Scripts/Pivot.cs" id="2_h22b5"]
 [ext_resource type="Texture2D" uid="uid://srj2qoc7eqvb" path="res://monochrome_tilemap_transparent.png" id="3_h22b5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dl07m"]

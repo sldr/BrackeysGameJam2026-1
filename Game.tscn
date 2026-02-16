@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj48a6oi8uist"]
 
-[ext_resource type="Script" uid="uid://dqaj3nnm2rxv" path="res://Game.cs" id="1_sb48q"]
+[ext_resource type="Script" uid="uid://dqaj3nnm2rxv" path="res://Scripts/Game.cs" id="1_sb48q"]
 [ext_resource type="PackedScene" uid="uid://vrddq0nupfxh" path="res://Player.tscn" id="2_xkndl"]
 [ext_resource type="PackedScene" uid="uid://c0anqef84k7er" path="res://Pivot.tscn" id="4_t88pq"]
 
@@ -16,5 +16,6 @@ TakeoffMaxHeight = 300.0
 TakeoffAnimationSpeed = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1442786010]
+position_smoothing_enabled = true
 
 [connection signal="Rotate" from="." to="Pivot" method="_on_game_node_2d_rotate"]
