@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c00trpartmh8o"]
+
+[ext_resource type="Texture2D" uid="uid://bfs2wiwpvf8vj" path="res://Rocks/meteorGrey_med1.png" id="1_1eso5"]
+[ext_resource type="Texture2D" uid="uid://dh58imowda64o" path="res://Rocks/meteorGrey_med2.png" id="2_8rfhw"]
+[ext_resource type="Texture2D" uid="uid://dhglnuuutwx8h" path="res://Rocks/meteorGrey_small1.png" id="3_cghw2"]
+[ext_resource type="Texture2D" uid="uid://k45ted4pwv1p" path="res://Rocks/meteorGrey_small2.png" id="4_ykraa"]
+[ext_resource type="Texture2D" uid="uid://balxlwn3t5lo6" path="res://Rocks/meteorGrey_tiny1.png" id="5_k2gr1"]
+[ext_resource type="Texture2D" uid="uid://b5i6bbotue66i" path="res://Rocks/meteorGrey_tiny2.png" id="6_u7cq7"]
+
+[sub_resource type="Gradient" id="Gradient_04eet"]
+offsets = PackedFloat32Array(0, 0.17928287, 0.8685259, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bjrml"]
+gradient = SubResource("Gradient_04eet")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rdp6m"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1000, 50, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -30, 0)
+color_ramp = SubResource("GradientTexture1D_bjrml")
+
+[node name="MoonRocks" type="Node2D" unique_id=814682332]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1324217021]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+amount = 2
+texture = ExtResource("1_1eso5")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_rdp6m")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=372884375]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+amount = 2
+texture = ExtResource("2_8rfhw")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_rdp6m")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="." unique_id=1895006135]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+amount = 2
+texture = ExtResource("3_cghw2")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_rdp6m")
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="." unique_id=1742237609]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+amount = 2
+texture = ExtResource("4_ykraa")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_rdp6m")
+
+[node name="GPUParticles2D5" type="GPUParticles2D" parent="." unique_id=1241729701]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+amount = 2
+texture = ExtResource("5_k2gr1")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_rdp6m")
+
+[node name="GPUParticles2D6" type="GPUParticles2D" parent="." unique_id=2014061808]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+amount = 2
+texture = ExtResource("6_u7cq7")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_rdp6m")
