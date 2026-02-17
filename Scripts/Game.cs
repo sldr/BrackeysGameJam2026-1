@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static Pivot;
 
 public partial class Game : Node2D
 {
@@ -38,4 +39,10 @@ public partial class Game : Node2D
         this.childRotateSceneTree.SetPlayer(this.childPlayer);
     }
 
+    public void AddRotateFinishedHandler(RotateFinishedEventHandler anotherRotateFinishedHandler)
+    {
+        if (anotherRotateFinishedHandler == null) {
+            this.childRotateSceneTree.AddRotateFinishedHandler(anotherRotateFinishedHandler);
+        }
+    }
 }

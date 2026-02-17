@@ -9,6 +9,29 @@ public partial class Pivot : Node2D
     private Tween rotTween = null;
     private int rot = 0;
 
+
+    private float _PivotTime = 1f;
+
+    [Export(PropertyHint.Range, "0,3")]
+    public float PivotTime
+    {
+        get => _PivotTime;
+        set
+        {
+            if (!Mathf.IsEqualApprox(_PivotTime, value)) {
+                _PivotTime = value;
+            }
+        }
+    }
+
+    [Signal]
+    public delegate void RotateFinishedEventHandler();
+
+    private void TriggerRotateFinished()
+    {
+        EmitSignal(SignalName.RotateFinished);
+    }
+
     public void SetPlayer(Node2D PlayerNode)
     {
         this.PlayerNode = PlayerNode;
@@ -42,7 +65,7 @@ public partial class Pivot : Node2D
         }
         // this.RotationDegrees = rot; // Snap to rotation
         this.rotTween = CreateTween();
-        rotTween.TweenProperty(this, "rotation_degrees", rot, 1.0f);
+        rotTween.TweenProperty(this, "rotation_degrees", rot, _PivotTime);
         rotTween.Finished += RotTween_Finished;
     }
 
@@ -50,5 +73,11 @@ public partial class Pivot : Node2D
     {
         GD.Print("Finished rot", this.childRotateNode2D.Position);
         this.rotTween = null;
+        TriggerRotateFinished();
+    }
+
+    public void AddRotateFinishedHandler(RotateFinishedEventHandler anotherRotateFinishedHandler)
+    {
+        this.RotateFinished += anotherRotateFinishedHandler;
     }
 }
