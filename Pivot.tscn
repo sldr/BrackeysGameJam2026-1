@@ -1219,9 +1219,9 @@ sources/0 = SubResource("TileSetAtlasSource_vmsgo")
 
 [node name="PivotNode2D" type="Node2D" unique_id=105369423]
 script = ExtResource("2_h22b5")
+PivotTime = 0.5
 
 [node name="SceneRootNode2D" type="Node2D" parent="." unique_id=1797306293]
-script = ExtResource("2_h22b5")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="SceneRootNode2D" unique_id=1571537130]
 position = Vector2(105, 134)
