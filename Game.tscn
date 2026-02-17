@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbeseiev4yxm6" path="res://RightBiomParallax.tscn" id="6_2vekm"]
 [ext_resource type="PackedScene" uid="uid://cpm6jmwb4gxyo" path="res://TopBiomParallax.tscn" id="7_yx171"]
 [ext_resource type="PackedScene" uid="uid://ccybcn53pjfx5" path="res://LeftBiomParallax.tscn" id="8_yhmtn"]
+[ext_resource type="PackedScene" uid="uid://brkw6od8wooud" path="res://LoveSpike.tscn" id="9_2vekm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_joorw"]
 texture = ExtResource("4_sb48q")
@@ -831,3 +832,8 @@ tile_set = SubResource("TileSet_3mrqo")
 [node name="TopBiomParallax" parent="ParallaxienNodes" unique_id=1650864976 instance=ExtResource("7_yx171")]
 
 [node name="LeftBiomParallax" parent="ParallaxienNodes" unique_id=1381611184 instance=ExtResource("8_yhmtn")]
+
+[node name="LoveSpike" parent="." unique_id=813599311 instance=ExtResource("9_2vekm")]
+position = Vector2(93, 1584)
+
+[connection signal="RotateStart" from="." to="Pivot" method="_on_game_node_2d_rotate_start"]

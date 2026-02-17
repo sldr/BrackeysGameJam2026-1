@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://brkw6od8wooud"]
+
+[ext_resource type="Texture2D" uid="uid://c7xjf8bxwah2n" path="res://LoveSpike.png" id="1_6bej8"]
+[ext_resource type="Script" uid="uid://cfjhfuu5d2n8d" path="res://LoveSpike.cs" id="2_upi0m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bej8"]
+texture = ExtResource("1_6bej8")
+separation = Vector2i(1, 1)
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 2.1583061, -0.17985916, -8, 8, 1.2590122, 8, 8)
+
+[sub_resource type="TileSet" id="TileSet_upi0m"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_6bej8")
+
+[node name="TileMapLayer" type="TileMapLayer" unique_id=813599311]
+position = Vector2(-8, -8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_upi0m")
+script = ExtResource("2_upi0m")
+Count = 3
