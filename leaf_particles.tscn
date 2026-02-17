@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://df1lbjwljegfj"]
+
+[ext_resource type="Texture2D" uid="uid://xvjugqbagdlp" path="res://Leafs/sprite_0029.png" id="1_7yuj2"]
+
+[sub_resource type="Gradient" id="Gradient_7yuj2"]
+offsets = PackedFloat32Array(0, 0.32669324, 0.60956174, 1)
+colors = PackedColorArray(0, 0, 0, 0, 18.892157, 0, 18.892157, 1, 18.892157, 0, 18.892157, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ath2g"]
+gradient = SubResource("Gradient_7yuj2")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7yuj2"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(200, 200, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angular_velocity_min = 4.999984
+angular_velocity_max = 173.70998
+gravity = Vector3(98, 40, 0)
+scale_min = 0.0
+scale_max = 0.01
+color_ramp = SubResource("GradientTexture1D_ath2g")
+turbulence_enabled = true
+turbulence_influence_min = 0.0
+
+[sub_resource type="Environment" id="Environment_igmao"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
+[node name="Leaf Particles" type="Node2D" unique_id=1114505396]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=858791875]
+amount = 100
+texture = ExtResource("1_7yuj2")
+lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_7yuj2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=789543312]
+environment = SubResource("Environment_igmao")
