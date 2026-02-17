@@ -1231,6 +1231,7 @@ tile_set = SubResource("TileSet_qe6as")
 [node name="WallsLine2D" type="Line2D" parent="SceneRootNode2D" unique_id=1647446666]
 position = Vector2(1, 0)
 points = PackedVector2Array(0, 0, 1600, 0, 1600, 800, 0, 800, 0, 0)
+width = 1.0
 
 [node name="BottomStaticBody2D" type="StaticBody2D" parent="SceneRootNode2D/WallsLine2D" unique_id=2048178555]
 position = Vector2(1129, 796)
