@@ -25,6 +25,7 @@ public partial class Test : StateManager
     [Export] public float TakeoffMaxHeight = 300f;
     [Export] public float TakeoffAnimationSpeed = 1.0f;
 
+
     protected override void InitializeManagers()
     {
         base.InitializeManagers();
@@ -84,6 +85,7 @@ public partial class Test : StateManager
             MovementManager.ResetDash();
             return;
         }
+        
 
         float baseSpeed = MovementManager.ApplyCrouchMultiplier(RunSpeed, downPressed);
         MovementManager.SetGroundedVelocity(new Vector2(inputX * baseSpeed, 0f));
@@ -117,6 +119,7 @@ public partial class Test : StateManager
         {
             MovementManager.SetVelocity(MovementManager.GetDashVelocity());
         }
+        
 
         if (IsOnFloor())
         {
@@ -251,4 +254,5 @@ public partial class Test : StateManager
     {
         base._Draw();
     }
+    
 }

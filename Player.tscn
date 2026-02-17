@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dcsgkmydtfy5d" path="res://Scripts/Test.cs" id="1_p8vxc"]
 [ext_resource type="Texture2D" uid="uid://srj2qoc7eqvb" path="res://monochrome_tilemap_transparent.png" id="2_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://bu27pj2l0jv11" path="res://output-onlinepngtools.png" id="3_kne1u"]
+[ext_resource type="Shader" uid="uid://bmi8eacclxnx1" path="res://SlashShader.gdshader" id="4_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://b47x2w0f3tdp0" path="res://icon.svg" id="5_tdg3f"]
+[ext_resource type="PackedScene" uid="uid://bj81kb02ewajf" path="res://spin_slash.tscn" id="6_tdg3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbvg0"]
 size = Vector2(16, 16)
@@ -980,6 +983,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpinSlash/Sprite2D:material:shader_parameter/width")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
 
 [sub_resource type="Animation" id="Animation_rv870"]
 resource_name = "RunLeft"
@@ -1122,6 +1137,22 @@ _data = {
 &"TakeOffCharge": SubResource("Animation_cxr5p")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dtqjt"]
+shader = ExtResource("4_cxr5p")
+shader_parameter/radius = 0.5
+shader_parameter/width = 0.5
+shader_parameter/highlight_center = Vector2(0.975, 0.45)
+shader_parameter/highlight_alpha = 1.0
+shader_parameter/main_color = Color(0, 0, 0, 1)
+shader_parameter/highlight_color = Color(3.4255767, 3.4255767, 3.4255767, 1)
+shader_parameter/glow = 0.0
+shader_parameter/slash_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Environment" id="Environment_cxr5p"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
 [node name="Player" type="CharacterBody2D" unique_id=1868464819]
 script = ExtResource("1_p8vxc")
 TakeoffMaxHeight = 200.0
@@ -1142,6 +1173,17 @@ animation = &"Jump"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=271937476]
 libraries/ = SubResource("AnimationLibrary_oudfo")
-autoplay = &"Idle"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1024958629]
+visible = false
+material = SubResource("ShaderMaterial_dtqjt")
+position = Vector2(24, 5.684342e-14)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_tdg3f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=957412577]
+environment = SubResource("Environment_cxr5p")
+
+[node name="SpinSlash" parent="." unique_id=63136702 instance=ExtResource("6_tdg3f")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

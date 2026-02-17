@@ -21,6 +21,9 @@ public partial class StateManager : CharacterBody2D
     // Landing state
     protected bool IsLanding = false;
 
+    // Timer
+    protected float SlashAnimStartBufferTimer = 0f;
+
     public override void _Ready()
     {
         InitializeManagers();
@@ -34,6 +37,25 @@ public partial class StateManager : CharacterBody2D
 
     public override void _Process(double delta)
     {
+        if (Input.IsActionJustPressed("attack"))
+        {
+            
+            // slash.Restart();
+            if (Facing == 1)
+            {
+                AnimationPlayer SpinAnim = GetNode<AnimationPlayer>("SpinSlash/AnimationPlayer2");
+                SpinAnim.Stop();
+                SpinAnim.Play("SpinSlashRight");
+                GD.Print("Test action pressed, emitting particles.");
+            }
+            else if (Facing == -1)
+            {
+                AnimationPlayer SpinAnim = GetNode<AnimationPlayer>("SpinSlash/AnimationPlayer2");
+                SpinAnim.Stop();
+                SpinAnim.Play("SpinSlashLeft");
+            }
+            
+        }
         float dt = (float)delta;
         UpdateState(dt);
         base.Velocity = MovementManager.GetVelocity();
@@ -95,5 +117,8 @@ public partial class StateManager : CharacterBody2D
     }
 
     protected virtual void OnAnimationFinishedHandler(string animName) { }
+
+
+    
 
 }

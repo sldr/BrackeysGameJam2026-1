@@ -800,6 +800,7 @@ sources/0 = SubResource("TileSetAtlasSource_joorw")
 script = ExtResource("1_sb48q")
 
 [node name="Pivot" parent="." unique_id=105369423 instance=ExtResource("4_t88pq")]
+PivotTime = 1.0
 
 [node name="Player" parent="." unique_id=1355204698 instance=ExtResource("2_xkndl")]
 position = Vector2(50, 50)
@@ -830,5 +831,3 @@ tile_set = SubResource("TileSet_3mrqo")
 [node name="TopBiomParallax" parent="ParallaxienNodes" unique_id=1650864976 instance=ExtResource("7_yx171")]
 
 [node name="LeftBiomParallax" parent="ParallaxienNodes" unique_id=1381611184 instance=ExtResource("8_yhmtn")]
-
-[connection signal="RotateStart" from="." to="Pivot" method="_on_game_node_2d_rotate_start"]

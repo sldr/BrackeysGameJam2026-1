@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://u2rq7d5m2246"]
 
 [ext_resource type="Script" uid="uid://mvliuoswymvb" path="res://Scripts/Main.cs" id="1_glv2v"]
+[ext_resource type="AudioStream" uid="uid://cc7q4pdfh83mq" path="res://flip game intro music v2.mp3" id="2_uu6xs"]
 
 [node name="Main" type="Node2D" unique_id=1636452266]
 script = ExtResource("1_glv2v")
@@ -58,6 +59,10 @@ text = "Quit
 
 [node name="HSeparator4" type="HSeparator" parent="Main Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=671824514]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=575590808]
+stream = ExtResource("2_uu6xs")
+autoplay = true
 
 [connection signal="pressed" from="Main Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main Menu/AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

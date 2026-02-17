@@ -1,6 +1,54 @@
-[gd_scene format=3 uid="uid://df1lbjwljegfj"]
+[gd_scene format=4 uid="uid://df1lbjwljegfj"]
 
 [ext_resource type="Texture2D" uid="uid://xvjugqbagdlp" path="res://Leafs/sprite_0029.png" id="1_7yuj2"]
+[ext_resource type="Texture2D" uid="uid://wc7h85i5bkr4" path="res://BaseMoonRock.png" id="2_igmao"]
+[ext_resource type="Texture2D" uid="uid://duney2yhcumhx" path="res://MoonRocksGroundOuter.png" id="3_35sxm"]
+[ext_resource type="Texture2D" uid="uid://db2wb0m2yovjg" path="res://Lavaoverlay.png" id="3_44su0"]
+[ext_resource type="PackedScene" uid="uid://vrddq0nupfxh" path="res://Player.tscn" id="5_35sxm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_44su0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35sxm"]
+texture = ExtResource("2_igmao")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qoe8w"]
+texture = ExtResource("3_44su0")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/modulate = Color(1.271572, 0.59416956, 1.3528494, 1)
+0:0/0/y_sort_origin = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gk344"]
+texture = ExtResource("3_35sxm")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.02578, 16, 16, 16, 16, -15, -8.731197, -15.025782, -12, -14, -13, -13, -15.127304, -10.254081)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -15, 16, -15, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -15.02578, -16, 16, 15, 16, 15.025782, -8.731197, 14, -12, 13, -13, 10.254081, -15.127304)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(15, -16, 15, 16, -16, 16, -16, -16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, 16, -15, -16, 16, -16, 16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 15.02578, 16, -16, -15, -16, -15.025782, 8.731197, -14, 12, -13, 13, -10.254081, 15.127304)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 15, -16, 15, -16, -16, 16, -16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(15.02578, -16, -16, -16, -16, 15, 8.731197, 15.025782, 12, 14, 13, 13, 15.127304, 10.254081)
+
+[sub_resource type="TileSet" id="TileSet_gk344"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_44su0")
+sources/0 = SubResource("TileSetAtlasSource_35sxm")
+sources/1 = SubResource("TileSetAtlasSource_qoe8w")
+sources/2 = SubResource("TileSetAtlasSource_gk344")
 
 [sub_resource type="Gradient" id="Gradient_7yuj2"]
 offsets = PackedFloat32Array(0, 0.32669324, 0.60956174, 1)
@@ -31,6 +79,14 @@ glow_blend_mode = 0
 
 [node name="Leaf Particles" type="Node2D" unique_id=1114505396]
 
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1412404485]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD5/wAAAAAAAAAAAAD5/wEAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wMAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wMAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD5////AgAAAAAAAAD6////AgABAAAAAAD7////AgABAAAAAAD8////AgABAAAAAAD9////AgABAAAAAAD+////AgABAAAAAAD/////AgABAAAAAAAAAP//AgABAAAAAAABAP//AgABAAAAAAACAP//AgABAAAAAAADAP//AgABAAAAAAAEAP//AgABAAAAAAAGAP//AgACAAAAAAAFAP//AgABAAAAAAA=")
+tile_set = SubResource("TileSet_gk344")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=207052698]
+tile_map_data = PackedByteArray("AAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAD7/wEAAQAAAAAAAAD7/wIAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wIAAQAAAAAAAAD+/wAAAQAAAAAAAAD+/wIAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAD6/wMAAQAAAAAAAAD6/wQAAQAAAAAAAAD7/wQAAQAAAAAAAAAFAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_gk344")
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=858791875]
 amount = 100
 texture = ExtResource("1_7yuj2")
@@ -39,3 +95,10 @@ process_material = SubResource("ParticleProcessMaterial_7yuj2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=789543312]
 environment = SubResource("Environment_igmao")
+
+[node name="Player" parent="." unique_id=1868464819 instance=ExtResource("5_35sxm")]
+position = Vector2(-39, -61)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1990762633]
+position = Vector2(1, 0)
+zoom = Vector2(3, 3)

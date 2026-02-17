@@ -1,0 +1,612 @@
+[gd_scene format=3 uid="uid://bj81kb02ewajf"]
+
+[ext_resource type="Shader" uid="uid://bmi8eacclxnx1" path="res://SlashShader.gdshader" id="1_pwc62"]
+[ext_resource type="Texture2D" uid="uid://b47x2w0f3tdp0" path="res://icon.svg" id="2_jnevm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdg3f"]
+shader = ExtResource("1_pwc62")
+shader_parameter/radius = 0.5
+shader_parameter/width = 0.5770000274075
+shader_parameter/highlight_center = Vector2(-0.3, 0.49)
+shader_parameter/highlight_alpha = 0.5
+shader_parameter/main_color = Color(0, 0, 0, 1)
+shader_parameter/highlight_color = Color(0, 0, 0, 1)
+shader_parameter/glow = 0.0
+shader_parameter/slash_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwc62"]
+shader = ExtResource("1_pwc62")
+shader_parameter/radius = 0.494000023465
+shader_parameter/width = 0.5
+shader_parameter/highlight_center = Vector2(0.015, 0.485)
+shader_parameter/highlight_alpha = 0.5
+shader_parameter/main_color = Color(0, 0, 0, 1)
+shader_parameter/highlight_color = Color(18.892157, 18.892157, 18.892157, 1)
+shader_parameter/glow = 1.0
+shader_parameter/slash_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+
+[sub_resource type="Gradient" id="Gradient_jnevm"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tdg3f"]
+gradient = SubResource("Gradient_jnevm")
+
+[sub_resource type="Curve" id="Curve_yuhdj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), -0.03681229, -0.03681229, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tdg3f"]
+curve = SubResource("Curve_yuhdj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d0plu"]
+particle_flag_disable_z = true
+spread = 0.0
+initial_velocity_min = -70.0
+initial_velocity_max = -70.0
+gravity = Vector3(100, 0, 0)
+scale_min = 0.7
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_tdg3f")
+color_ramp = SubResource("GradientTexture1D_tdg3f")
+
+[sub_resource type="Animation" id="Animation_pwc62"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpinSlash/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpinSlash/Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpinSlash/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpinSlash/Sprite2D2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpinSlash/Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpinSlash/Sprite2D2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpinSlash/GPUParticles2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpinSlash/GPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SpinSlash/GPUParticles2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-110, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SpinSlash/GPUParticles2D:material:shader_parameter/highlight_center")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.015, 0.485)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SpinSlash/GPUParticles2D:process_material:gravity")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(100, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SpinSlash/GPUParticles2D:process_material:initial_velocity")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-70, -70)]
+}
+
+[sub_resource type="Animation" id="Animation_jnevm"]
+resource_name = "SpinSlashLeft"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpinSlash/Sprite2D:material:shader_parameter/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.79999995, 1.3999999),
+"transitions": PackedFloat32Array(17.75309, 0.30778593, 1),
+"update": 0,
+"values": [0.5, 0.4510000214225, 0.5770000274075]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpinSlash/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.39984438, 0.80372757, 0.99759156),
+"transitions": PackedFloat32Array(-0.5, -0.5, 1),
+"update": 0,
+"values": [-6.2831855, 6.2831855, -6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpinSlash/Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.40388322, 0.79968876, 0.99759156),
+"transitions": PackedFloat32Array(-0.5, -0.5, 1),
+"update": 0,
+"values": [-3.141592653589793, 9.42477796076938, -3.141592653589793]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpinSlash/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.39481848, 0.7946629, 1.0046821),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(0.4, 0.4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpinSlash/Sprite2D2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.7998444, 1.0098636),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(0.4, 0.4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpinSlash:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-110, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpinSlash/GPUParticles2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(110, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpinSlash/GPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SpinSlash/Sprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.39186612, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SpinSlash/Sprite2D2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.39186612, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SpinSlash/GPUParticles2D:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SpinSlash/GPUParticles2D:material:shader_parameter/highlight_center")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.015, 0.485)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpinSlash/GPUParticles2D:process_material:gravity")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-100, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpinSlash/GPUParticles2D:process_material:initial_velocity")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-70, -70)]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SpinSlash/GPUParticles2D")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cgsek"]
+resource_name = "SpinSlashRight"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpinSlash/Sprite2D:material:shader_parameter/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.50015557, 0.7001556),
+"transitions": PackedFloat32Array(17.75309, 0.30778593, 1),
+"update": 0,
+"values": [0.5, 0.4510000214225, 0.5770000274075]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpinSlash/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.39984438, 0.5038832, 0.6977472),
+"transitions": PackedFloat32Array(-0.5, -0.5, 1),
+"update": 0,
+"values": [-6.2831855, 6.2831855, -6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpinSlash/Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.40388322, 0.49984437, 0.6977472),
+"transitions": PackedFloat32Array(-0.5, -0.5, 1),
+"update": 0,
+"values": [-3.141592653589793, 9.42477796076938, -3.141592653589793]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpinSlash/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.39481848, 0.4948185, 0.9),
+"transitions": PackedFloat32Array(1, 0.07966007, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.4, 0.4), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpinSlash/Sprite2D2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 0.0796, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.4, 0.4), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpinSlash:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(110, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpinSlash/Sprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.40119624),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpinSlash/Sprite2D2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.40119624),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SpinSlash/GPUParticles2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.40119624),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SpinSlash/GPUParticles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.009330145),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SpinSlash/GPUParticles2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-110, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SpinSlash/GPUParticles2D:material:shader_parameter/highlight_center")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.905, 0.485)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpinSlash/GPUParticles2D:process_material:gravity")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(100, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpinSlash/GPUParticles2D:process_material:initial_velocity")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(70, 70)]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SpinSlash/GPUParticles2D")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oudfo"]
+_data = {
+&"RESET": SubResource("Animation_pwc62"),
+&"SpinSlashLeft": SubResource("Animation_jnevm"),
+&"SpinSlashRight": SubResource("Animation_cgsek")
+}
+
+[node name="SpinSlash" type="Node2D" unique_id=63136702]
+position = Vector2(110, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=236080570]
+visible = false
+material = SubResource("ShaderMaterial_tdg3f")
+position = Vector2(-40, 0)
+rotation = -6.2831855
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_jnevm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=317341674]
+visible = false
+material = SubResource("ShaderMaterial_tdg3f")
+position = Vector2(-40, 0)
+rotation = -6.2831855
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jnevm")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1552257137]
+material = SubResource("ShaderMaterial_pwc62")
+position = Vector2(-110, 0)
+emitting = false
+amount = 1
+texture = ExtResource("2_jnevm")
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_d0plu")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=2050609796]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_oudfo")

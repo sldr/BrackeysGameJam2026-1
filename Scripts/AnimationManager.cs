@@ -278,4 +278,5 @@ public class AnimationManager
     {
         _animPlayer.SpeedScale = speedScale;
     }
+
 }
