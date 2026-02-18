@@ -12,7 +12,7 @@ shader_parameter/highlight_alpha = 0.5
 shader_parameter/main_color = Color(0, 0, 0, 1)
 shader_parameter/highlight_color = Color(0, 0, 0, 1)
 shader_parameter/glow = 0.0
-shader_parameter/slash_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+shader_parameter/slash_color = Color(3.2944162, 0, 3.2944162, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwc62"]
 shader = ExtResource("1_pwc62")
@@ -198,7 +198,6 @@ tracks/11/keys = {
 
 [sub_resource type="Animation" id="Animation_jnevm"]
 resource_name = "SpinSlashLeft"
-length = 2.0
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -207,7 +206,7 @@ tracks/0/path = NodePath("SpinSlash/Sprite2D:material:shader_parameter/width")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4, 0.79999995, 1.3999999),
+"times": PackedFloat32Array(0.4, 0.50480396, 0.89727217),
 "transitions": PackedFloat32Array(17.75309, 0.30778593, 1),
 "update": 0,
 "values": [0.5, 0.4510000214225, 0.5770000274075]
@@ -219,7 +218,7 @@ tracks/1/path = NodePath("SpinSlash/Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.39984438, 0.80372757, 0.99759156),
+"times": PackedFloat32Array(0.39984438, 0.5085316, 0.70480406),
 "transitions": PackedFloat32Array(-0.5, -0.5, 1),
 "update": 0,
 "values": [-6.2831855, 6.2831855, -6.2831855]
@@ -231,7 +230,7 @@ tracks/2/path = NodePath("SpinSlash/Sprite2D2:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.40388322, 0.79968876, 0.99759156),
+"times": PackedFloat32Array(0.40388322, 0.50449276, 0.7023956),
 "transitions": PackedFloat32Array(-0.5, -0.5, 1),
 "update": 0,
 "values": [-3.141592653589793, 9.42477796076938, -3.141592653589793]
@@ -243,10 +242,10 @@ tracks/3/path = NodePath("SpinSlash/Sprite2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.39481848, 0.7946629, 1.0046821),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.39481848, 0.4994669, 0.8824109),
+"transitions": PackedFloat32Array(1, 0.0796, 1),
 "update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(0.4, 0.4)]
+"values": [Vector2(0.3, 0.3), Vector2(0.4, 0.4), Vector2(0.9, 0.9)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -255,7 +254,7 @@ tracks/4/path = NodePath("SpinSlash/Sprite2D2:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.4, 0.7998444, 1.0098636),
+"times": PackedFloat32Array(0.4, 0.5046484, 0.7146677),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(0.4, 0.4)]
@@ -303,7 +302,7 @@ tracks/8/path = NodePath("SpinSlash/Sprite2D:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.39186612, 1.4),
+"times": PackedFloat32Array(0, 0.39186612, 0.8972723),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -315,7 +314,7 @@ tracks/9/path = NodePath("SpinSlash/Sprite2D2:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.39186612, 1.4),
+"times": PackedFloat32Array(0, 0.39186612, 0.8972723),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -582,7 +581,6 @@ position = Vector2(110, 0)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=236080570]
 visible = false
 material = SubResource("ShaderMaterial_tdg3f")
-position = Vector2(-40, 0)
 rotation = -6.2831855
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jnevm")
@@ -590,7 +588,6 @@ texture = ExtResource("2_jnevm")
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=317341674]
 visible = false
 material = SubResource("ShaderMaterial_tdg3f")
-position = Vector2(-40, 0)
 rotation = -6.2831855
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_jnevm")
