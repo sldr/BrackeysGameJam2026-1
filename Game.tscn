@@ -812,7 +812,7 @@ TakeoffAnimationSpeed = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1442786010]
 
-[node name="HUD" parent="Player/Camera2D" unique_id=1042555485 instance=ExtResource("10_yx171")]
+[node name="HUD" parent="Player" unique_id=1042555485 instance=ExtResource("10_yx171")]
 
 [node name="TestingParallax2D" type="Parallax2D" parent="." unique_id=1894631476]
 visible = false

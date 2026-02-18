@@ -4,10 +4,10 @@ using System;
 public partial class Hud : CanvasLayer
 {
     [Export]
-    public NodePath ProgressBarNodePath;
+    public NodePath HealthProgressBarNodePath;
 
-    public ProgressBar GetProgressBar()
+    public ProgressBar GetHealthProgressBar()
     {
-        return this.GetNode<ProgressBar>(this.ProgressBarNodePath);
+        return this.GetNode<ProgressBar>(this.HealthProgressBarNodePath);
     }
 }
