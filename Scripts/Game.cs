@@ -21,10 +21,13 @@ public partial class Game : Node2D
     private Parallax2D topBiomParallax;
     private Parallax2D lftBiomParallax;
     private Biom currentBiom = Biom.Bottom;
+    private Hud hud;
+    private int playerhealth;
 
 
     [Export]
     public int PlayerHealthMax = 500;
+
     [Export]
     public int PlayerHealthStart = 200;
 
@@ -61,9 +64,12 @@ public partial class Game : Node2D
         this.rgtBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/RightBiomParallax");
         this.topBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/TopBiomParallax");
         this.lftBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/LeftBiomParallax");
+        this.hud = GetNode<Hud>("HUD");
         this.childRotateSceneTree.SetPlayer(this.childPlayer);
         enableBiom(Biom.Bottom);
         this.childRotateSceneTree.RotateFinished += ChildRotateSceneTree_RotateFinished;
+        this.playerhealth = PlayerHealthStart;
+        this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
     }
 
     private void ChildRotateSceneTree_RotateFinished(bool left)
@@ -126,4 +132,20 @@ public partial class Game : Node2D
                 break;
         }
     }
+
+    public void ChangePlayerHealth(int change)
+    {
+        if (change == 0) {
+            return;
+        }
+        this.playerhealth += change;
+        if (playerhealth > PlayerHealthMax) {
+            this.playerhealth = PlayerHealthMax;
+        }
+        if (playerhealth < 0) {
+            this.playerhealth = 0;
+        }
+        this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
+    }
+
 }

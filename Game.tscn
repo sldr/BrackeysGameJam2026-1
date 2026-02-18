@@ -812,8 +812,6 @@ TakeoffAnimationSpeed = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1442786010]
 
-[node name="HUD" parent="Player" unique_id=1042555485 instance=ExtResource("10_yx171")]
-
 [node name="TestingParallax2D" type="Parallax2D" parent="." unique_id=1894631476]
 visible = false
 scale = Vector2(2, 2)
@@ -843,5 +841,7 @@ Count = 2
 [node name="TileMapLayer" parent="." unique_id=2056737885 instance=ExtResource("9_2vekm")]
 position = Vector2(208, 104)
 Count = 10
+
+[node name="HUD" parent="." unique_id=1042555485 instance=ExtResource("10_yx171")]
 
 [connection signal="RotateStart" from="." to="Pivot" method="_on_game_node_2d_rotate_start"]
