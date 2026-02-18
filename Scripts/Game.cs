@@ -22,6 +22,12 @@ public partial class Game : Node2D
     private Parallax2D lftBiomParallax;
     private Biom currentBiom = Biom.Bottom;
 
+
+    [Export]
+    public int PlayerHealthMax = 500;
+    [Export]
+    public int PlayerHealthStart = 200;
+
     [Signal]
     public delegate void RotateStartEventHandler(bool left = false);
 

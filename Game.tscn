@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cpm6jmwb4gxyo" path="res://TopBiomParallax.tscn" id="7_yx171"]
 [ext_resource type="PackedScene" uid="uid://ccybcn53pjfx5" path="res://LeftBiomParallax.tscn" id="8_yhmtn"]
 [ext_resource type="PackedScene" uid="uid://brkw6od8wooud" path="res://LoveSpike.tscn" id="9_2vekm"]
+[ext_resource type="PackedScene" uid="uid://dibupu2ar5g1y" path="res://HUD.tscn" id="10_yx171"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_joorw"]
 texture = ExtResource("4_sb48q")
@@ -811,6 +812,8 @@ TakeoffAnimationSpeed = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1442786010]
 
+[node name="HUD" parent="Player/Camera2D" unique_id=1042555485 instance=ExtResource("10_yx171")]
+
 [node name="TestingParallax2D" type="Parallax2D" parent="." unique_id=1894631476]
 visible = false
 scale = Vector2(2, 2)
@@ -835,5 +838,10 @@ tile_set = SubResource("TileSet_3mrqo")
 
 [node name="LoveSpike" parent="." unique_id=813599311 instance=ExtResource("9_2vekm")]
 position = Vector2(93, 1584)
+Count = 2
+
+[node name="TileMapLayer" parent="." unique_id=2056737885 instance=ExtResource("9_2vekm")]
+position = Vector2(208, 104)
+Count = 10
 
 [connection signal="RotateStart" from="." to="Pivot" method="_on_game_node_2d_rotate_start"]
