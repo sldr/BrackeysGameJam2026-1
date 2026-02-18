@@ -40,7 +40,6 @@ public partial class StateManager : CharacterBody2D
         if (Input.IsActionJustPressed("attack"))
         {
             
-            // slash.Restart();
             if (Facing == 1)
             {
                 AnimationPlayer SpinAnim = GetNode<AnimationPlayer>("SpinSlash/AnimationPlayer2");

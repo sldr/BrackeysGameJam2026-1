@@ -184,6 +184,8 @@ public partial class Test : StateManager
         MovementManager.ApplyGlideMovement(inputX, delta);
 
         bool spaceHeld = Input.IsActionPressed("jump");
+        if (inputX > 0) Facing = 1;
+        else if (inputX < 0) Facing = -1;
 
         if (spaceHeld && MovementManager.CanGlideFlap())
         {
