@@ -1219,6 +1219,7 @@ separation = Vector2i(1, 1)
 17:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:19/0 = 0
 18:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xkoat"]
 physics_layer_0/collision_layer = 1

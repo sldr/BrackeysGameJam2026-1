@@ -25,6 +25,8 @@ public partial class Game : Node2D
     private Hud hud;
     private int playerhealth;
     private const int PlayerHealthInit = 500;
+    private bool inHazardCoolDown = false;
+    private Tween hazardTween = null;
 
     [Export]
     public int PlayerHealthMax = PlayerHealthInit;
@@ -43,6 +45,9 @@ public partial class Game : Node2D
 
     [Export]
     public int EnemyHitCollLay5 = 100;
+
+    [Export]
+    public float HazardCoolDown = 1.0f;
 
 
     [Signal]
@@ -164,6 +169,10 @@ public partial class Game : Node2D
 
     public void HazardHit(int hazardLevel)
     {
+        if (inHazardCoolDown) {
+            return;
+        }
+        inHazardCoolDown = true;
         switch (hazardLevel) {
             case 1:
                 ChangePlayerHealth(-this.HazardCollLay2);
@@ -178,6 +187,19 @@ public partial class Game : Node2D
             default:
                 return;
         }
+        hazardTween = CreateTween();
+        hazardTween.SetLoops(1);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 0f, 0.3f);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 1f, 0.3f);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 0f, 0.5f);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 1f, 0.5f);
+        hazardTween.Finished += HazardTween_Finished;
+    }
+
+    private void HazardTween_Finished()
+    {
+        hazardTween = null;
+        inHazardCoolDown = false;
     }
 
 }
