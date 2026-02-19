@@ -170,6 +170,12 @@ public partial class Game : Node2D
         this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
     }
 
+    public void ChangePlayerHealthFull()
+    {
+        this.playerhealth = PlayerHealthMax;
+        this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
+    }
+
     public void HazardHit(int hazardLevel)
     {
         if (inHazardCoolDown) {
