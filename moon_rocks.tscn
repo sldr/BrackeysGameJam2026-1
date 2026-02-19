@@ -20,48 +20,50 @@ emission_shape_scale = Vector3(1000, 50, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, -30, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
 color_ramp = SubResource("GradientTexture1D_bjrml")
 
 [node name="MoonRocks" type="Node2D" unique_id=814682332]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1324217021]
-modulate = Color(0.735357, 0.735357, 0.735357, 1)
-amount = 2
+amount = 4
 texture = ExtResource("1_1eso5")
 lifetime = 5.0
+visibility_rect = Rect2(-1000, 200, 2000, -1000)
 process_material = SubResource("ParticleProcessMaterial_rdp6m")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=372884375]
-modulate = Color(0.735357, 0.735357, 0.735357, 1)
-amount = 2
+amount = 4
 texture = ExtResource("2_8rfhw")
 lifetime = 5.0
+visibility_rect = Rect2(-1000, 200, 2000, -1000)
 process_material = SubResource("ParticleProcessMaterial_rdp6m")
 
 [node name="GPUParticles2D3" type="GPUParticles2D" parent="." unique_id=1895006135]
-modulate = Color(0.735357, 0.735357, 0.735357, 1)
-amount = 2
+amount = 4
 texture = ExtResource("3_cghw2")
 lifetime = 5.0
+visibility_rect = Rect2(-1000, 200, 2000, -1000)
 process_material = SubResource("ParticleProcessMaterial_rdp6m")
 
 [node name="GPUParticles2D4" type="GPUParticles2D" parent="." unique_id=1742237609]
-modulate = Color(0.735357, 0.735357, 0.735357, 1)
-amount = 2
+amount = 4
 texture = ExtResource("4_ykraa")
 lifetime = 5.0
+visibility_rect = Rect2(-1000, 200, 2000, -1000)
 process_material = SubResource("ParticleProcessMaterial_rdp6m")
 
 [node name="GPUParticles2D5" type="GPUParticles2D" parent="." unique_id=1241729701]
-modulate = Color(0.735357, 0.735357, 0.735357, 1)
-amount = 2
+amount = 4
 texture = ExtResource("5_k2gr1")
 lifetime = 5.0
+visibility_rect = Rect2(-1000, 200, 2000, -1000)
 process_material = SubResource("ParticleProcessMaterial_rdp6m")
 
 [node name="GPUParticles2D6" type="GPUParticles2D" parent="." unique_id=2014061808]
-modulate = Color(0.735357, 0.735357, 0.735357, 1)
-amount = 2
+amount = 4
 texture = ExtResource("6_u7cq7")
 lifetime = 5.0
+visibility_rect = Rect2(-1000, 200, 2000, -1000)
 process_material = SubResource("ParticleProcessMaterial_rdp6m")

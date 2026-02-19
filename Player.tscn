@@ -1211,11 +1211,12 @@ _data = {
 &"Stopping": SubResource("Animation_cgsek")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1868464819]
+[node name="Player" type="CharacterBody2D" unique_id=1868464819 groups=["Player"]]
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("1_p8vxc")
-TakeoffMaxHeight = 200.0
+DashSpeed = 1000.0
+FlapStaminaDrain = 50.0
 TakeoffAnimationSpeed = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=764845315]
