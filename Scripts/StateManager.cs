@@ -18,6 +18,9 @@ public partial class StateManager : CharacterBody2D
     // Facing direction: +1 = right, -1 = left
     public int Facing = 1;
 
+    // Slash combo count
+    private int slash_count = 0;
+
     // Landing state
     protected bool IsLanding = false;
 
@@ -39,8 +42,54 @@ public partial class StateManager : CharacterBody2D
     {
         if (Input.IsActionJustPressed("attack"))
         {
-            
-            if (Facing == 1)
+           
+
+            if (slash_count == 2)
+            {
+                playMegaSlash();
+            }
+            else if (slash_count == 1)
+            {
+                AnimationPlayer ShineAnim = GetNode<AnimationPlayer>("ShineEffect");
+                ShineAnim.Play("ShineEffect");
+                AnimationPlayer SpinAnim = GetNode<AnimationPlayer>("SpinSlash/AnimationPlayer2");
+                
+                SpinAnim.Stop();
+                if (Facing == 1)
+                {
+                    SpinAnim.Play("SlashRight");
+                }
+                else if (Facing == -1)
+                {
+                    SpinAnim.Play("SlashLeft");
+                }
+            }
+            else
+            {
+                AnimationPlayer SpinAnim = GetNode<AnimationPlayer>("SpinSlash/AnimationPlayer2");
+                SpinAnim.Stop();
+                if (Facing == 1)
+                {
+                    SpinAnim.Play("SlashRight");
+                }
+                else if (Facing == -1)
+                {
+                    SpinAnim.Play("SlashLeft");
+                }
+               
+            }
+            slash_count = (slash_count + 1) % 3;
+        }
+        float dt = (float)delta;
+        UpdateState(dt);
+        base.Velocity = MovementManager.GetVelocity();
+        MoveAndSlide();
+    }
+    private void playMegaSlash()
+	{
+        AnimationPlayer ShineAnim = GetNode<AnimationPlayer>("ShineEffect");
+        ShineAnim.Play("Stopping");
+		if (Facing == 1)
             {
                 AnimationPlayer SpinAnim = GetNode<AnimationPlayer>("SpinSlash/AnimationPlayer2");
                 SpinAnim.Stop();
@@ -53,13 +102,7 @@ public partial class StateManager : CharacterBody2D
                 SpinAnim.Stop();
                 SpinAnim.Play("SpinSlashLeft");
             }
-            
-        }
-        float dt = (float)delta;
-        UpdateState(dt);
-        base.Velocity = MovementManager.GetVelocity();
-        MoveAndSlide();
-    }
+	}
 
     protected virtual void UpdateState(float delta)
     {
