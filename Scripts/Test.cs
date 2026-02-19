@@ -269,10 +269,12 @@ public partial class Test : StateManager
                 );
                 var tileData = tilemap.GetCellTileData(tileCoords);
                 if (tileData != null) {
-                    Variant HazardLevel = tileData.GetCustomData("HazardLevel");
-                    if (HazardLevel.VariantType == Variant.Type.Int) {
-                        int HazardLevelInt = (int)HazardLevel;
-                        this.GetParent<Game>().HazardHit(HazardLevelInt);
+                    if (tileData.HasCustomData("HazardLevel")) {
+                        Variant HazardLevel = tileData.GetCustomData("HazardLevel");
+                        if (HazardLevel.VariantType == Variant.Type.Int) {
+                            int HazardLevelInt = (int)HazardLevel;
+                            this.GetParent<Game>().HazardHit(HazardLevelInt);
+                        }
                     }
                 }
             }
