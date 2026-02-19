@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tdg3f"]
 shader = ExtResource("1_pwc62")
 shader_parameter/radius = 0.5
-shader_parameter/width = 0.0
+shader_parameter/width = 0.5
 shader_parameter/highlight_center = Vector2(-0.3, 0.49)
 shader_parameter/highlight_alpha = 0.5
 shader_parameter/main_color = Color(0, 0, 0, 1)
