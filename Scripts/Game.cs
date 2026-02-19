@@ -80,8 +80,8 @@ public partial class Game : Node2D
     public override void _Ready()
     {
         base._Ready();
-        this.childRotateSceneTree = GetChild<Pivot>(0);
-        this.childPlayer = GetChild<CharacterBody2D>(1);
+        this.childRotateSceneTree = GetChild<Pivot>(1);
+        this.childPlayer = GetChild<CharacterBody2D>(2);
         this.botBiomParallax = GetNode<Node2D>("ParallaxienNodes/BottomBiomParallax").GetNode<Parallax2D>("Parallax2D"); 
         this.rgtBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/RightBiomParallax");
         this.topBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/TopBiomParallax");
