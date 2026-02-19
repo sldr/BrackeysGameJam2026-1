@@ -8,7 +8,7 @@ public partial class Pivot : Node2D
     private Node2D childRotateNode2D;
     private Tween rotTween = null;
     private int rot = 0;
-    private float _SideLength = 1600f;
+    private float _SideLength = 14000f;
     private bool _NeedsApplySideLength = true;
     private float _PivotTime = 1f;
     private bool rotatedLeft = false;

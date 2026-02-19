@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cpm6jmwb4gxyo" path="res://TopBiomParallax.tscn" id="7_yx171"]
 [ext_resource type="PackedScene" uid="uid://ccybcn53pjfx5" path="res://LeftBiomParallax.tscn" id="8_yhmtn"]
 [ext_resource type="PackedScene" uid="uid://brkw6od8wooud" path="res://LoveSpike.tscn" id="9_2vekm"]
-[ext_resource type="PackedScene" uid="uid://dibupu2ar5g1y" path="res://HUD.tscn" id="10_yx171"]
+[ext_resource type="PackedScene" path="res://HUD.tscn" id="10_yx171"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_joorw"]
 texture = ExtResource("4_sb48q")
@@ -800,7 +800,6 @@ sources/0 = SubResource("TileSetAtlasSource_joorw")
 
 [node name="GameNode2D" type="Node2D" unique_id=215686828]
 script = ExtResource("1_sb48q")
-PlayerHealthStart = 500
 
 [node name="Pivot" parent="." unique_id=105369423 instance=ExtResource("4_t88pq")]
 PivotTime = 1.0
@@ -818,10 +817,13 @@ TakeoffAnimationSpeed = 1.0
 [node name="BottomBiomParallax" parent="ParallaxienNodes" unique_id=1834095525 instance=ExtResource("5_joorw")]
 
 [node name="RightBiomParallax" parent="ParallaxienNodes" unique_id=630453241 instance=ExtResource("6_2vekm")]
+visible = false
 
 [node name="TopBiomParallax" parent="ParallaxienNodes" unique_id=1650864976 instance=ExtResource("7_yx171")]
+visible = false
 
 [node name="LeftBiomParallax" parent="ParallaxienNodes" unique_id=1381611184 instance=ExtResource("8_yhmtn")]
+visible = false
 
 [node name="LoveSpike" parent="." unique_id=813599311 instance=ExtResource("9_2vekm")]
 position = Vector2(93, 1584)

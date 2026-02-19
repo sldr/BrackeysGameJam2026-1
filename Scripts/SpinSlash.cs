@@ -4,11 +4,11 @@ using System;
 public partial class SpinSlash : Node2D
 {
 	private int slash_count = 0;
-	private AnimationPlayer _animPlayer;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_animPlayer = GetNode<AnimationPlayer>("AnimationPlayer2");
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,5 +17,15 @@ public partial class SpinSlash : Node2D
 		
 	}
 
+	private void _on_slash_area_body_entered(Node2D body)
+	{
+		if (body is PhysicsBody2D enemy)
+		{
+			if (enemy.IsInGroup("enemies"))
+			{
+				enemy.QueueFree();
+			}
+		}
+	}
 	
 }
