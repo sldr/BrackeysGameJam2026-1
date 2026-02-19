@@ -17,15 +17,6 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cjvms"]
 normal = Vector2(0, 1)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shvho"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_43x8e"]
-
-[sub_resource type="TileSet" id="TileSet_xkoat"]
-physics_layer_0/collision_layer = 1
-custom_data_layer_0/name = "HazardLevel"
-custom_data_layer_0/type = 2
-
 [node name="PivotNode2D" type="Node2D" unique_id=105369423]
 script = ExtResource("2_h22b5")
 PivotTime = 0.5

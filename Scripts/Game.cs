@@ -82,7 +82,7 @@ public partial class Game : Node2D
         base._Ready();
         this.childRotateSceneTree = GetChild<Pivot>(0);
         this.childPlayer = GetChild<CharacterBody2D>(1);
-        this.botBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/BottomBiomParallax");
+        this.botBiomParallax = GetNode<Node2D>("ParallaxienNodes/BottomBiomParallax").GetNode<Parallax2D>("Parallax2D"); 
         this.rgtBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/RightBiomParallax");
         this.topBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/TopBiomParallax");
         this.lftBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/LeftBiomParallax");

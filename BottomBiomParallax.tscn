@@ -5,6 +5,7 @@
 [node name="Node2D" type="Node2D" unique_id=421058957]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1834095525]
+visible = false
 repeat_size = Vector2(1342, 320)
 repeat_times = 2
 
@@ -13,6 +14,7 @@ tile_map_data = PackedByteArray("AAABAPr/CAABAAAAAAABAPv/CAABAAAAAAABAPz/CAABAAA
 tile_set = ExtResource("1_lh646")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=471831678]
+visible = false
 repeat_size = Vector2(1342, 320)
 repeat_times = 2
 
