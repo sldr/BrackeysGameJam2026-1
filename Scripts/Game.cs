@@ -47,7 +47,10 @@ public partial class Game : Node2D
     public int EnemyHitCollLay5 = 100;
 
     [Export]
-    public float HazardCoolDown = 1.0f;
+    public float HazardCoolDownBlink1 = 0.3f;
+
+    [Export]
+    public float HazardCoolDownBlink2 = 0.5f;
 
 
     [Signal]
@@ -189,10 +192,10 @@ public partial class Game : Node2D
         }
         hazardTween = CreateTween();
         hazardTween.SetLoops(1);
-        hazardTween.TweenProperty(childPlayer, "modulate:a", 0f, 0.3f);
-        hazardTween.TweenProperty(childPlayer, "modulate:a", 1f, 0.3f);
-        hazardTween.TweenProperty(childPlayer, "modulate:a", 0f, 0.5f);
-        hazardTween.TweenProperty(childPlayer, "modulate:a", 1f, 0.5f);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 0f, this.HazardCoolDownBlink1);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 1f, this.HazardCoolDownBlink1);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 0f, this.HazardCoolDownBlink2);
+        hazardTween.TweenProperty(childPlayer, "modulate:a", 1f, this.HazardCoolDownBlink2);
         hazardTween.Finished += HazardTween_Finished;
     }
 
