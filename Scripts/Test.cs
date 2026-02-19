@@ -256,5 +256,26 @@ public partial class Test : StateManager
     {
         base._Draw();
     }
-    
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+        for (int i = 0; i < GetSlideCollisionCount(); i++) {
+            var collision = GetSlideCollision(i);
+            if (collision.GetCollider() is TileMapLayer tilemap) {
+                Vector2 worldPos = collision.GetPosition();
+                Vector2I tileCoords = tilemap.LocalToMap(
+                    tilemap.ToLocal(worldPos)
+                );
+                var tileData = tilemap.GetCellTileData(tileCoords);
+                if (tileData != null) {
+                    Variant HazardLevel = tileData.GetCustomData("HazardLevel");
+                    if (HazardLevel.VariantType == Variant.Type.Int) {
+                        int HazardLevelInt = (int)HazardLevel;
+                        this.GetParent<Game>().HazardHit(HazardLevelInt);
+                    }
+                }
+            }
+        }
+    }
 }
