@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.InteropServices.JavaScript;
 using static Pivot;
 
 public partial class Game : Node2D
@@ -23,13 +24,26 @@ public partial class Game : Node2D
     private Biom currentBiom = Biom.Bottom;
     private Hud hud;
     private int playerhealth;
-
-
-    [Export]
-    public int PlayerHealthMax = 500;
+    private const int PlayerHealthInit = 500;
 
     [Export]
-    public int PlayerHealthStart = 200;
+    public int PlayerHealthMax = PlayerHealthInit;
+
+    [Export]
+    public int PlayerHealthStart = PlayerHealthInit;
+
+    [Export]
+    public int HazardCollLay2 = 10;
+
+    [Export]
+    public int HazardCollLay3 = 20;
+
+    [Export]
+    public int HazardCollLay4 = 50;
+
+    [Export]
+    public int EnemyHitCollLay5 = 100;
+
 
     [Signal]
     public delegate void RotateStartEventHandler(bool left = false);
@@ -146,6 +160,24 @@ public partial class Game : Node2D
             this.playerhealth = 0;
         }
         this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
+    }
+
+    public void HazardHit(int hazardLevel)
+    {
+        switch (hazardLevel) {
+            case 1:
+                ChangePlayerHealth(-this.HazardCollLay2);
+                break;
+            case 2:
+                ChangePlayerHealth(-this.HazardCollLay3);
+                break;
+            case 3:
+                ChangePlayerHealth(-this.HazardCollLay4);
+                break;
+            case 0:
+            default:
+                return;
+        }
     }
 
 }

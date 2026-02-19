@@ -29,6 +29,5 @@ public partial class Hud : CanvasLayer
     {
         base._Ready();
         this.healthProgressBar = this.GetNode<ProgressBar>(this.HealthProgressBarNodePath);
-        this.healthProgressBar.Value = 100;
     }
 }
