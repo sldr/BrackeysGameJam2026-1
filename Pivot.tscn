@@ -188,76 +188,57 @@ position = Vector2(12569, 10602)
 
 [node name="HatGuyEnemy" parent="SceneRootNode2D" unique_id=1374167087 instance=ExtResource("7_bkunx")]
 position = Vector2(2946, 10419)
-script = null
 
 [node name="HatGuyEnemy2" parent="SceneRootNode2D" unique_id=379848030 instance=ExtResource("7_bkunx")]
 position = Vector2(3143, 10150)
-script = null
 
 [node name="HatGuyEnemy5" parent="SceneRootNode2D" unique_id=347075532 instance=ExtResource("7_bkunx")]
 position = Vector2(4571, 10340)
-script = null
 
 [node name="HatGuyEnemy6" parent="SceneRootNode2D" unique_id=1835652880 instance=ExtResource("7_bkunx")]
 position = Vector2(5099, 10408)
-script = null
 
 [node name="HatGuyEnemy7" parent="SceneRootNode2D" unique_id=2067896788 instance=ExtResource("7_bkunx")]
 position = Vector2(5600, 10286)
-script = null
 
 [node name="HatGuyEnemy8" parent="SceneRootNode2D" unique_id=1342797813 instance=ExtResource("7_bkunx")]
 position = Vector2(6261, 10408)
-script = null
 
 [node name="HatGuyEnemy9" parent="SceneRootNode2D" unique_id=654434101 instance=ExtResource("7_bkunx")]
 position = Vector2(6977, 10669)
-script = null
 
 [node name="HatGuyEnemy10" parent="SceneRootNode2D" unique_id=2025509759 instance=ExtResource("7_bkunx")]
 position = Vector2(7812, 10305)
-script = null
 
 [node name="HatGuyEnemy11" parent="SceneRootNode2D" unique_id=35847854 instance=ExtResource("7_bkunx")]
 position = Vector2(9561, 9930)
-script = null
 
 [node name="HatGuyEnemy12" parent="SceneRootNode2D" unique_id=1475582547 instance=ExtResource("7_bkunx")]
 position = Vector2(9929, 10003)
-script = null
 
 [node name="HatGuyEnemy13" parent="SceneRootNode2D" unique_id=1945139938 instance=ExtResource("7_bkunx")]
 position = Vector2(10292, 10068)
-script = null
 
 [node name="HatGuyEnemy14" parent="SceneRootNode2D" unique_id=2035816455 instance=ExtResource("7_bkunx")]
 position = Vector2(10634, 10138)
-script = null
 
 [node name="HatGuyEnemy15" parent="SceneRootNode2D" unique_id=736629439 instance=ExtResource("7_bkunx")]
 position = Vector2(10927, 10190)
-script = null
 
 [node name="HatGuyEnemy16" parent="SceneRootNode2D" unique_id=1076832342 instance=ExtResource("7_bkunx")]
 position = Vector2(11230, 10265)
-script = null
 
 [node name="HatGuyEnemy17" parent="SceneRootNode2D" unique_id=659749334 instance=ExtResource("7_bkunx")]
 position = Vector2(11554, 10296)
-script = null
 
 [node name="HatGuyEnemy18" parent="SceneRootNode2D" unique_id=702602549 instance=ExtResource("7_bkunx")]
 position = Vector2(11917, 10381)
-script = null
 
 [node name="HatGuyEnemy19" parent="SceneRootNode2D" unique_id=1950724034 instance=ExtResource("7_bkunx")]
 position = Vector2(12412, 10594)
-script = null
 
 [node name="HatGuyEnemy4" parent="SceneRootNode2D" unique_id=1619286996 instance=ExtResource("7_bkunx")]
 position = Vector2(2315, 10109)
-script = null
 
 [node name="HatGuyEnemy3" parent="SceneRootNode2D" unique_id=1052187697 instance=ExtResource("7_bkunx")]
 position = Vector2(2334, 10536)
-script = null
