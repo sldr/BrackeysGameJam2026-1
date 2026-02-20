@@ -25,15 +25,23 @@ public partial class Game : Node2D
     private Hud hud;
     private int playerhealth;
     private const int PlayerHealthInit = 500;
+    private const int PlayerStaminaInit = 500;
     private bool inHazardCoolDown = false;
     private Tween hazardTween = null;
     private int killCount = 0;
+    private int stamina = 100;
 
     [Export]
     public int PlayerHealthMax = PlayerHealthInit;
 
     [Export]
-    public int PlayerHealthStart = PlayerHealthInit;
+    public int PlayerHealthStart = PlayerHealthInit / 2;
+
+    [Export]
+    public int PlayerStaminaMax = PlayerStaminaInit;
+
+    [Export]
+    public int PlayerStaminaStart = PlayerStaminaInit / 2;
 
     [Export]
     public int HazardCollLay2 = 10;
@@ -58,6 +66,8 @@ public partial class Game : Node2D
     public delegate void RotateStartEventHandler(bool left = false);
     [Signal]
     public delegate void KillCountChangedEventHandler(int newCount);
+    [Signal]
+    public delegate void StaminaChangedEventHandler(int newStamina);
 
     private void TriggerRotateStart(bool left = false)
     {
@@ -68,6 +78,15 @@ public partial class Game : Node2D
     {
         killCount++;
         EmitSignal(SignalName.KillCountChanged, killCount);
+    }
+
+    public void ChangeStamina(int staminaChange)
+    {
+        if (staminaChange == 0) {
+            return;
+        }
+        stamina += staminaChange;
+        EmitSignal(SignalName.StaminaChanged, stamina);
     }
 
 
