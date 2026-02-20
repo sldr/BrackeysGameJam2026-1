@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b1sg1vhnnkg28"]
+
+[ext_resource type="Script" uid="uid://dqv1d6lb6ai5h" path="res://BlackHole.cs" id="1_4cfdr"]
+[ext_resource type="Texture2D" uid="uid://15qjng1qrrl2" path="res://Leafs/sprite_0032.png" id="1_mxodt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mxodt"]
+radius = 6.0
+height = 22.0
+
+[node name="FirePickup" type="Node2D" unique_id=1904030403]
+script = ExtResource("1_4cfdr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=732201473]
+modulate = Color(18.892157, 6.050024, 0, 1)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_mxodt")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2085642162]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1624325864]
+shape = SubResource("CapsuleShape2D_mxodt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

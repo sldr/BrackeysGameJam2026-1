@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d0wb4hr6k4k1c"]
+
+[ext_resource type="Texture2D" uid="uid://xvjugqbagdlp" path="res://Leafs/sprite_0029.png" id="1_wnmue"]
+
+[sub_resource type="Curve" id="Curve_vahhe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50546443, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pntde"]
+curve = SubResource("Curve_vahhe")
+
+[sub_resource type="Curve" id="Curve_wnmue"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.55464476, -0.08217704), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vahhe"]
+curve = SubResource("Curve_wnmue")
+
+[sub_resource type="Gradient" id="Gradient_wnmue"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vahhe"]
+gradient = SubResource("Gradient_wnmue")
+
+[sub_resource type="Gradient" id="Gradient_pntde"]
+offsets = PackedFloat32Array(0, 0.35882354, 0.7, 1)
+colors = PackedColorArray(0, 0, 0, 1, 8.910802, 8.910802, 8.910802, 1, 18.892157, 18.892157, 18.892157, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hngft"]
+gradient = SubResource("Gradient_pntde")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_kexum"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5136612, 0.71558166), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jasud"]
+curve = SubResource("Curve_kexum")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vahhe"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(200, 25, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 49.700012
+angle_curve = SubResource("CurveTexture_vahhe")
+gravity = Vector3(0, -70, 0)
+scale_min = 0.01
+scale_max = 0.03
+scale_curve = SubResource("CurveTexture_jasud")
+scale_over_velocity_max = 54.46
+color = Color(1, 0.25766784, 0, 1)
+color_ramp = SubResource("GradientTexture1D_hngft")
+color_initial_ramp = SubResource("GradientTexture1D_vahhe")
+alpha_curve = SubResource("CurveTexture_pntde")
+turbulence_enabled = true
+
+[sub_resource type="Environment" id="Environment_pntde"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
+[node name="Embers" type="Node2D" unique_id=2034027038]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2127117289]
+amount = 20
+texture = ExtResource("1_wnmue")
+process_material = SubResource("ParticleProcessMaterial_vahhe")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=740158023]
+environment = SubResource("Environment_pntde")
