@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkt04egd528p8"]
 
 [ext_resource type="Texture2D" uid="uid://dlcytfpmd0wcr" path="res://HatGuyBlackAnim.png" id="1_1p8t4"]
+[ext_resource type="Script" uid="uid://df7s5v0iimmnp" path="res://HatGuyEnemy.cs" id="1_48org"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48org"]
 atlas = ExtResource("1_1p8t4")
@@ -36,6 +37,7 @@ radius = 14.0
 height = 88.0
 
 [node name="HatGuyEnemy" type="StaticBody2D" unique_id=1374167087 groups=["enemies"]]
+script = ExtResource("1_48org")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=62653495]
 sprite_frames = SubResource("SpriteFrames_ahgow")
@@ -44,3 +46,11 @@ frame_progress = 0.053170927
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=683927676]
 shape = SubResource("CapsuleShape2D_1p8t4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=190751745]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=946997522]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CapsuleShape2D_1p8t4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

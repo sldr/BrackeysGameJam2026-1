@@ -16,9 +16,13 @@ public partial class BlackHole : Node2D
 	private void _on_area_2d_body_entered(PhysicsBody2D body)
 	{
 		if (body.IsInGroup("Player")) {
-			
-			this.QueueFree();
-			
-		}
-	}
+            Game game = GetTree().CurrentScene as Game;
+            if (game != null) {
+                game.ChangePlayerHealthFull();
+            }
+            this.QueueFree();
+
+
+        }
+    }
 }
