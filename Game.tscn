@@ -11,6 +11,8 @@
 
 [node name="GameNode2D" type="Node2D" unique_id=215686828]
 script = ExtResource("1_sb48q")
+PlayerStaminaMax = 100.0
+PlayerStaminaStart = 100.0
 
 [node name="ParallaxienNodes" type="Node2D" parent="." unique_id=1895745010]
 

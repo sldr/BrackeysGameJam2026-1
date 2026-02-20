@@ -17,19 +17,19 @@ public partial class Game : Node2D
 
     private Pivot childRotateSceneTree;
     private CharacterBody2D childPlayer;
-    private Parallax2D botBiomParallax;
-    private Parallax2D rgtBiomParallax;
-    private Parallax2D topBiomParallax;
-    private Parallax2D lftBiomParallax;
+    private Node2D botBiomParallax;
+    private Node2D rgtBiomParallax;
+    private Node2D topBiomParallax;
+    private Node2D lftBiomParallax;
     private Biom currentBiom = Biom.Bottom;
     private Hud hud;
     private int playerhealth;
     private const int PlayerHealthInit = 500;
-    private const int PlayerStaminaInit = 500;
+    private const float PlayerStaminaInit = 100f;
     private bool inHazardCoolDown = false;
     private Tween hazardTween = null;
     private int killCount = 0;
-    private int stamina = 100;
+    private float stamina=0f;
 
     [Export]
     public int PlayerHealthMax = PlayerHealthInit;
@@ -38,10 +38,10 @@ public partial class Game : Node2D
     public int PlayerHealthStart = PlayerHealthInit / 2;
 
     [Export]
-    public int PlayerStaminaMax = PlayerStaminaInit;
+    public float PlayerStaminaMax = PlayerStaminaInit;
 
     [Export]
-    public int PlayerStaminaStart = PlayerStaminaInit / 2;
+    public float PlayerStaminaStart = PlayerStaminaInit;
 
     [Export]
     public int HazardCollLay2 = 10;
@@ -67,7 +67,7 @@ public partial class Game : Node2D
     [Signal]
     public delegate void KillCountChangedEventHandler(int newCount);
     [Signal]
-    public delegate void StaminaChangedEventHandler(int newStamina);
+    public delegate void StaminaChangedEventHandler(float newStamina, float newStaminaPercentOfMax);
 
     private void TriggerRotateStart(bool left = false)
     {
@@ -80,15 +80,51 @@ public partial class Game : Node2D
         EmitSignal(SignalName.KillCountChanged, killCount);
     }
 
-    public void ChangeStamina(int staminaChange)
+    public bool TryChangeStamina(float staminaChange)
     {
-        if (staminaChange == 0) {
-            return;
+        if (Mathf.Abs(staminaChange) < Mathf.Epsilon) {
+            return false; // Stamina Will Not Be Changed because staminaChange ~= 0.0
         }
-        stamina += staminaChange;
-        EmitSignal(SignalName.StaminaChanged, stamina);
+        float newStamina = stamina + staminaChange;
+        if (newStamina < 0.0f) {
+            return false; // Stamina Will Not Be Changed because the staminaChange value would cause stamina to go below 0.0
+        }
+        if (newStamina > this.PlayerStaminaMax) {
+            if (NearlyEqual(stamina, this.PlayerStaminaMax)) {
+                return false; // Stamina Will Not Be Changed because stamina is already ~= PlayerStaminaMax
+            }
+            stamina = this.PlayerStaminaMax;
+        } else {
+            stamina = newStamina;
+        }
+        EmitSignal(SignalName.StaminaChanged, stamina, stamina * 100 / this.PlayerStaminaMax);
+        return true;
     }
 
+    public (bool success, float decreasedAmount) TryDecreaseAnyStaminaUpTo(float staminaDecreaseMax)
+    {
+        if (Mathf.Abs(staminaDecreaseMax) < Mathf.Epsilon) {
+            return (false, 0.0f); // Stamina Will Not Be Changed because staminaDecreaseMax ~= 0.0
+        }
+        if (Mathf.Abs(stamina) < Mathf.Epsilon || stamina < 0.0f) {
+            return (false, 0.0f); // Stamina Will Not Be Changed because stamina ~= 0.0 or less than 0.0 so none left
+        }
+        if (stamina > staminaDecreaseMax) {
+            stamina -= staminaDecreaseMax;
+            EmitSignal(SignalName.StaminaChanged, stamina, stamina * 100 / this.PlayerStaminaMax);
+            return (true, staminaDecreaseMax);
+        }
+        float staminaDecrease = stamina;
+        stamina = 0.0f;
+        EmitSignal(SignalName.StaminaChanged, stamina, 0.0f);
+        return (true, staminaDecrease);
+    }
+
+    public void ResetStamina()
+    {
+        stamina = this.PlayerStaminaMax;
+        EmitSignal(SignalName.StaminaChanged, stamina, 100.0f);
+    }
 
     public override void _Process(double delta)
     {
@@ -111,15 +147,17 @@ public partial class Game : Node2D
         base._Ready();
         this.childRotateSceneTree = GetChild<Pivot>(1);
         this.childPlayer = GetChild<CharacterBody2D>(2);
-        this.botBiomParallax = GetNode<Node2D>("ParallaxienNodes/BottomBiomParallax").GetNode<Parallax2D>("Parallax2D"); 
-        this.rgtBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/RightBiomParallax");
-        this.topBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/TopBiomParallax");
-        this.lftBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/LeftBiomParallax");
+        this.botBiomParallax = GetNode<Node2D>("ParallaxienNodes/BottomBiomParallax");
+        this.rgtBiomParallax = GetNode<Node2D>("ParallaxienNodes/RightBiomParallax");
+        this.topBiomParallax = GetNode<Node2D>("ParallaxienNodes/TopBiomParallax");
+        this.lftBiomParallax = GetNode<Node2D>("ParallaxienNodes/LeftBiomParallax");
         this.hud = GetNode<Hud>("HUD");
         this.childRotateSceneTree.SetPlayer(this.childPlayer);
         enableBiom(Biom.Bottom);
         this.childRotateSceneTree.RotateFinished += ChildRotateSceneTree_RotateFinished;
         this.playerhealth = PlayerHealthStart;
+        this.stamina = PlayerStaminaStart;
+        EmitSignal(SignalName.StaminaChanged, stamina);
         this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
     }
 
@@ -149,7 +187,7 @@ public partial class Game : Node2D
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.botBiomParallax.Visible = true;
-                this.botBiomParallax.ScrollOffset = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.botBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Right:
                 GD.Print("Right Biom Enabled");
@@ -157,7 +195,7 @@ public partial class Game : Node2D
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.rgtBiomParallax.Visible = true;
-                this.rgtBiomParallax.ScrollOffset = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.rgtBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Top:
                 GD.Print("Top Biom Enabled");
@@ -165,6 +203,7 @@ public partial class Game : Node2D
                 this.rgtBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.topBiomParallax.Visible = true;
+                this.topBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Left:
                 GD.Print("Left Biom Enabled");
@@ -172,6 +211,7 @@ public partial class Game : Node2D
                 this.rgtBiomParallax.Visible = false;
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = true;
+                this.lftBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.None:
             default:
@@ -239,5 +279,11 @@ public partial class Game : Node2D
         hazardTween = null;
         inHazardCoolDown = false;
     }
+
+    private bool NearlyEqual(float a, float b, float tolerance = Mathf.Epsilon)
+    {
+        return Mathf.Abs(a - b) < tolerance;
+    }
+
 
 }
