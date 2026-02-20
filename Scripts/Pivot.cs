@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[Tool]
 public partial class Pivot : Node2D
 {
 
@@ -9,7 +10,7 @@ public partial class Pivot : Node2D
     private Tween rotTween = null;
     private int rot = 0;
     private float _SideLength = 14000f;
-    private bool _NeedsApplySideLength = true;
+    private bool _NeedsApplySideLength = false;
     private float _PivotTime = 1f;
     private bool rotatedLeft = false;
 
@@ -60,11 +61,12 @@ public partial class Pivot : Node2D
         points[2] = new Vector2(this._SideLength, this._SideLength);
         points[3] = new Vector2(0, this._SideLength);
         lines.Points = points;
-        lines.GetChild<StaticBody2D>(0).Position = new Vector2(0, this._SideLength);
-        lines.GetChild<StaticBody2D>(1).Position = new Vector2(0, 0);
-        lines.GetChild<StaticBody2D>(2).Position = new Vector2(this._SideLength, 0);
-        lines.GetChild<StaticBody2D>(3).Position = new Vector2(0, 0);
-        this.QueueRedraw();
+        lines.GetNode<StaticBody2D>("TopStaticBody2D").Position = new Vector2(0, 0);
+        lines.GetNode<StaticBody2D>("LeftStaticBody2D").Position = new Vector2(0, 0);
+        lines.GetNode<StaticBody2D>("BottomStaticBody2D").Position = new Vector2(0, this._SideLength);
+        lines.GetNode<StaticBody2D>("RightStaticBody2D").Position = new Vector2(this._SideLength, 0);
+        this._NeedsApplySideLength = false;
+        this.QueueRedrawRecursive(this);
     }
 
 
@@ -73,14 +75,8 @@ public partial class Pivot : Node2D
         this.PlayerNode = PlayerNode;
     }
 
-    public override void _Draw()
-    {
-        
-    }
-
     public override void _Ready()
     {
-        base._Ready();
         this.childRotateNode2D = this.GetChild<Node2D>(0);
         if (_NeedsApplySideLength) {
             ApplySideLength();
@@ -125,5 +121,19 @@ public partial class Pivot : Node2D
     {
         GD.Print("GetTopLeftGlobalPosition: ", this.childRotateNode2D.GlobalPosition);
         return this.childRotateNode2D.GlobalPosition;
+    }
+
+    private void QueueRedrawRecursive(Node node)
+    {
+        if (node is CanvasItem canvasItem)
+            canvasItem.QueueRedraw();
+        foreach (Node child in node.GetChildren())
+            QueueRedrawRecursive(child);
+    }
+
+    public override void _Process(double delta)
+    {
+        if (Engine.IsEditorHint())
+            QueueRedrawRecursive(this);
     }
 }
