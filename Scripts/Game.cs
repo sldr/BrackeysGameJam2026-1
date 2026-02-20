@@ -17,10 +17,10 @@ public partial class Game : Node2D
 
     private Pivot childRotateSceneTree;
     private CharacterBody2D childPlayer;
-    private Parallax2D botBiomParallax;
-    private Parallax2D rgtBiomParallax;
-    private Parallax2D topBiomParallax;
-    private Parallax2D lftBiomParallax;
+    private Node2D botBiomParallax;
+    private Node2D rgtBiomParallax;
+    private Node2D topBiomParallax;
+    private Node2D lftBiomParallax;
     private Biom currentBiom = Biom.Bottom;
     private Hud hud;
     private int playerhealth;
@@ -147,10 +147,10 @@ public partial class Game : Node2D
         base._Ready();
         this.childRotateSceneTree = GetChild<Pivot>(1);
         this.childPlayer = GetChild<CharacterBody2D>(2);
-        this.botBiomParallax = GetNode<Node2D>("ParallaxienNodes/BottomBiomParallax").GetNode<Parallax2D>("Parallax2D"); 
-        this.rgtBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/RightBiomParallax");
-        this.topBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/TopBiomParallax");
-        this.lftBiomParallax = GetNode<Parallax2D>("ParallaxienNodes/LeftBiomParallax");
+        this.botBiomParallax = GetNode<Node2D>("ParallaxienNodes/BottomBiomParallax");
+        this.rgtBiomParallax = GetNode<Node2D>("ParallaxienNodes/RightBiomParallax");
+        this.topBiomParallax = GetNode<Node2D>("ParallaxienNodes/TopBiomParallax");
+        this.lftBiomParallax = GetNode<Node2D>("ParallaxienNodes/LeftBiomParallax");
         this.hud = GetNode<Hud>("HUD");
         this.childRotateSceneTree.SetPlayer(this.childPlayer);
         enableBiom(Biom.Bottom);
@@ -187,7 +187,7 @@ public partial class Game : Node2D
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.botBiomParallax.Visible = true;
-                this.botBiomParallax.ScrollOffset = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.botBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Right:
                 GD.Print("Right Biom Enabled");
@@ -195,7 +195,7 @@ public partial class Game : Node2D
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.rgtBiomParallax.Visible = true;
-                this.rgtBiomParallax.ScrollOffset = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.rgtBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Top:
                 GD.Print("Top Biom Enabled");
@@ -203,6 +203,7 @@ public partial class Game : Node2D
                 this.rgtBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.topBiomParallax.Visible = true;
+                this.topBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Left:
                 GD.Print("Left Biom Enabled");
@@ -210,6 +211,7 @@ public partial class Game : Node2D
                 this.rgtBiomParallax.Visible = false;
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = true;
+                this.lftBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.None:
             default:
