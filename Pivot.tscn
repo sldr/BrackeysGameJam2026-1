@@ -11,6 +11,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4hw36"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h22b5"]
+resource_local_to_scene = true
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ba4o8"]
 normal = Vector2(1, 0)
@@ -28,6 +29,7 @@ glow_blend_mode = 0
 
 [node name="PivotNode2D" type="Node2D" unique_id=105369423]
 script = ExtResource("2_h22b5")
+SideLength = 140.0
 PivotTime = 0.5
 
 [node name="SceneRootNode2D" type="Node2D" parent="." unique_id=1797306293]
@@ -46,28 +48,26 @@ points = PackedVector2Array(0, 0, 14000, 0, 14000, 14000, 0, 14000, 0, 0)
 width = 1.0
 
 [node name="BottomStaticBody2D" type="StaticBody2D" parent="SceneRootNode2D/WallsLine2D" unique_id=2048178555]
-position = Vector2(1129, 796)
+position = Vector2(0, 14000)
 physics_material_override = SubResource("PhysicsMaterial_4hw36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneRootNode2D/WallsLine2D/BottomStaticBody2D" unique_id=1419966386]
 shape = SubResource("WorldBoundaryShape2D_h22b5")
 
 [node name="LeftStaticBody2D" type="StaticBody2D" parent="SceneRootNode2D/WallsLine2D" unique_id=789671338]
-position = Vector2(4, 57)
 physics_material_override = SubResource("PhysicsMaterial_4hw36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneRootNode2D/WallsLine2D/LeftStaticBody2D" unique_id=1477827706]
 shape = SubResource("WorldBoundaryShape2D_ba4o8")
 
 [node name="RightStaticBody2D" type="StaticBody2D" parent="SceneRootNode2D/WallsLine2D" unique_id=1791668700]
-position = Vector2(1597, 57)
+position = Vector2(14000, 0)
 physics_material_override = SubResource("PhysicsMaterial_4hw36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneRootNode2D/WallsLine2D/RightStaticBody2D" unique_id=1519686369]
 shape = SubResource("WorldBoundaryShape2D_chjqq")
 
 [node name="TopStaticBody2D" type="StaticBody2D" parent="SceneRootNode2D/WallsLine2D" unique_id=2034772310]
-position = Vector2(84, 4)
 physics_material_override = SubResource("PhysicsMaterial_4hw36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneRootNode2D/WallsLine2D/TopStaticBody2D" unique_id=1055262368]
