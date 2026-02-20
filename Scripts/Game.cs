@@ -27,6 +27,7 @@ public partial class Game : Node2D
     private const int PlayerHealthInit = 500;
     private bool inHazardCoolDown = false;
     private Tween hazardTween = null;
+    private int killCount = 0;
 
     [Export]
     public int PlayerHealthMax = PlayerHealthInit;
@@ -55,11 +56,20 @@ public partial class Game : Node2D
 
     [Signal]
     public delegate void RotateStartEventHandler(bool left = false);
+    [Signal]
+    public delegate void KillCountChangedEventHandler(int newCount);
 
     private void TriggerRotateStart(bool left = false)
     {
         EmitSignal(SignalName.RotateStart, left);
     }
+
+    public void AddKill()
+    {
+        killCount++;
+        EmitSignal(SignalName.KillCountChanged, killCount);
+    }
+
 
     public override void _Process(double delta)
     {

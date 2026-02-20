@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 public partial class SpinSlash : Node2D
 {
@@ -24,8 +25,13 @@ public partial class SpinSlash : Node2D
 			if (enemy.IsInGroup("enemies"))
 			{
 				enemy.QueueFree();
-			}
-		}
+                Game game = GetTree().CurrentScene as Game;
+                if (game != null) {
+                    game.AddKill();
+                }
+
+            }
+        }
 	}
 	
 }

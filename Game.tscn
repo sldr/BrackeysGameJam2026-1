@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbeseiev4yxm6" path="res://RightBiomParallax.tscn" id="6_2vekm"]
 [ext_resource type="PackedScene" uid="uid://cpm6jmwb4gxyo" path="res://TopBiomParallax.tscn" id="7_yx171"]
 [ext_resource type="PackedScene" uid="uid://ccybcn53pjfx5" path="res://LeftBiomParallax.tscn" id="8_yhmtn"]
-[ext_resource type="PackedScene" path="res://HUD.tscn" id="10_yx171"]
+[ext_resource type="PackedScene" uid="uid://dibupu2ar5g1y" path="res://HUD.tscn" id="10_yx171"]
 
 [node name="GameNode2D" type="Node2D" unique_id=215686828]
 script = ExtResource("1_sb48q")
