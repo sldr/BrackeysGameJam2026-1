@@ -16,7 +16,6 @@ public partial class Test : StateManager
     [Export] public float GlideDriftSmoothness = 0.15f;
     [Export] public float GlideAscendRate = -200f;
     [Export] public float GlideDescendRate = 100f;
-    [Export] public float FlapStaminaMax = 100f;
     [Export] public float FlapStaminaDrain = 20f;
     [Export] public float FlapStaminaRegen = 15f;
     [Export] public float TakeoffChargeCapTime = 1f;
@@ -24,6 +23,8 @@ public partial class Test : StateManager
     [Export] public float CrouchSpeedMultiplier = 0.5f;
     [Export] public float TakeoffMaxHeight = 300f;
     [Export] public float TakeoffAnimationSpeed = 1.0f;
+
+    private Game game = null;
 
 
     protected override void InitializeManagers()
@@ -39,7 +40,6 @@ public partial class Test : StateManager
         MovementManager.GlideDriftSmoothness = GlideDriftSmoothness;
         MovementManager.GlideAscendRate = GlideAscendRate;
         MovementManager.GlideDescendRate = GlideDescendRate;
-        MovementManager.FlapStaminaMax = FlapStaminaMax;
         MovementManager.FlapStaminaDrain = FlapStaminaDrain;
         MovementManager.FlapStaminaRegen = FlapStaminaRegen;
         MovementManager.TakeoffMaxHeight = TakeoffMaxHeight;
@@ -100,6 +100,9 @@ public partial class Test : StateManager
 
     protected override void UpdateAirborne(float delta)
     {
+        if (game == null) {
+            game = GetTree().CurrentScene as Game;
+        }
         MovementManager.AddGravity(delta);
         float inputX = MovementManager.GetInputX();
         MovementManager.ApplyAirborneMovement(inputX);
@@ -124,7 +127,7 @@ public partial class Test : StateManager
         if (IsOnFloor())
         {
             MovementManager.SetVerticalVelocity(0f);
-            MovementManager.ResetStamina();
+            game.ResetStamina();
             AnimationManager.PlayLandingAnimation();
             IsLanding = true;
             NextState = State.Grounded;
@@ -163,6 +166,9 @@ public partial class Test : StateManager
 
     protected override void UpdateGliding(float delta)
     {
+        if (game == null) {
+            game = GetTree().CurrentScene as Game;
+        }
         bool canExit = MovementManager.TakeoffLockTimer <= 0f;
 
         if (Input.IsActionPressed("down") && canExit)
@@ -175,7 +181,7 @@ public partial class Test : StateManager
         {
             MovementManager.SetVerticalVelocity(0f);
             NextState = State.Grounded;
-            MovementManager.ResetStamina();
+            game.ResetStamina();
             AnimationManager.PlayLandingAnimation();
             return;
         }
@@ -187,11 +193,8 @@ public partial class Test : StateManager
         if (inputX > 0) Facing = 1;
         else if (inputX < 0) Facing = -1;
 
-        if (spaceHeld && MovementManager.CanGlideFlap())
+        if (spaceHeld && MovementManager.TryApplyGlideAscent(game, delta))
         {
-            // Ascend while space is held
-            MovementManager.ApplyGlideAscent(delta);
-
             // Loop GlideFlap while space is held
             AnimationManager.PlayGlideFlapAnimation();
         }
@@ -260,6 +263,9 @@ public partial class Test : StateManager
     public override void _Process(double delta)
     {
         base._Process(delta);
+        if (game == null) {
+            game = GetTree().CurrentScene as Game;
+        }
         for (int i = 0; i < GetSlideCollisionCount(); i++) {
             var collision = GetSlideCollision(i);
             if (collision.GetCollider() is TileMapLayer tilemap) {
@@ -276,7 +282,7 @@ public partial class Test : StateManager
                             if (HazardLevelInt == 0) {
                                 return;
                             }
-                            this.GetParent<Game>().HazardHit(HazardLevelInt);
+                            game.HazardHit(HazardLevelInt);
                         }
                     }
                 }

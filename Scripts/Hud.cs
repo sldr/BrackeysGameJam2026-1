@@ -7,7 +7,6 @@ public partial class Hud : CanvasLayer
     private ProgressBar healthProgressBar;
     private ProgressBar staminaProgressBar;
     private Label killLabel;
-    private int PlayerStaminaMax;
 
 
     [Export]
@@ -43,13 +42,12 @@ public partial class Hud : CanvasLayer
         if (game != null) {
             game.KillCountChanged += Game_KillCountChanged;
             game.StaminaChanged += Game_StaminaChanged;
-            this.PlayerStaminaMax = game.PlayerStaminaMax;
         }
     }
 
-    private void Game_StaminaChanged(int newStamina)
+    private void Game_StaminaChanged(float newStamina, float newStaminaPercentOfMax)
     {
-        staminaProgressBar.Value = newStamina * 100 / this.PlayerStaminaMax;
+        staminaProgressBar.Value = newStaminaPercentOfMax;
     }
 
     private void Game_KillCountChanged(int newCount)

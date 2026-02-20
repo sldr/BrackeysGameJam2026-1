@@ -18,7 +18,6 @@ public class MovementManager
     public float GlideDriftSmoothness = 0.15f;
     public float GlideAscendRate = -200f;
     public float GlideDescendRate = 100f;
-    public float FlapStaminaMax = 100f;
     public float FlapStaminaDrain = 20f;
     public float FlapStaminaRegen = 15f;
     public float TakeoffMaxHeight = 300f;
@@ -35,9 +34,6 @@ public class MovementManager
     public float TakeoffLockTimer = 0f;
     public float TakeoffImpulseTimer = 0f;
 
-    // Stamina
-    public float Stamina;
-
     // Dash
     private bool _hasDashAvailable = true;
     private Vector2 _dashDirection = Vector2.Zero;
@@ -49,7 +45,6 @@ public class MovementManager
     public MovementManager(CharacterBody2D character)
     {
         _character = character;
-        Stamina = FlapStaminaMax;
     }
 
     public void UpdateTimers(float delta)
@@ -142,11 +137,14 @@ public class MovementManager
         _velocity.X = Mathf.Lerp(_velocity.X, targetX, GlideDriftSmoothness);
     }
 
-    public void ApplyGlideAscent(float delta)
+    public bool TryApplyGlideAscent(Game game, float delta)
     {
+        var (success, value) = game.TryDecreaseAnyStaminaUpTo(FlapStaminaDrain * delta);
+        if (!success) {
+            return false;
+        }
         _velocity.Y = GlideAscendRate;
-        Stamina -= FlapStaminaDrain * delta;
-        Stamina = Mathf.Max(Stamina, 0f);
+        return true;
     }
 
     public void ApplyGlideDescent()
@@ -168,9 +166,9 @@ public class MovementManager
         TakeoffRiseSpeed = TakeoffTargetHeight / animLength;
     }
 
-    public void ResetStamina()
+    public void ResetStamina(Game game)
     {
-        Stamina = FlapStaminaMax;
+        game.ResetStamina();
     }
 
     public bool HasDashAvailable()
@@ -178,8 +176,4 @@ public class MovementManager
         return _hasDashAvailable;
     }
 
-    public bool CanGlideFlap()
-    {
-        return Stamina > 0f;
-    }
 }
