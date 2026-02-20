@@ -7,12 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cbeseiev4yxm6" path="res://RightBiomParallax.tscn" id="6_2vekm"]
 [ext_resource type="PackedScene" uid="uid://cpm6jmwb4gxyo" path="res://TopBiomParallax.tscn" id="7_yx171"]
 [ext_resource type="PackedScene" uid="uid://ccybcn53pjfx5" path="res://LeftBiomParallax.tscn" id="8_yhmtn"]
+[ext_resource type="AudioStream" uid="uid://corx8su58puue" path="res://moon track v1.mp3" id="9_2vekm"]
 [ext_resource type="PackedScene" uid="uid://dibupu2ar5g1y" path="res://HUD.tscn" id="10_yx171"]
 
 [node name="GameNode2D" type="Node2D" unique_id=215686828]
 script = ExtResource("1_sb48q")
-PlayerStaminaMax = 100.0
-PlayerStaminaStart = 100.0
 
 [node name="ParallaxienNodes" type="Node2D" parent="." unique_id=1895745010]
 
@@ -39,5 +38,10 @@ TakeoffAnimationSpeed = 1.0
 position_smoothing_enabled = true
 
 [node name="HUD" parent="." unique_id=1042555485 instance=ExtResource("10_yx171")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=646326751]
+stream = ExtResource("9_2vekm")
+autoplay = true
+bus = &"Music"
 
 [connection signal="RotateStart" from="." to="Pivot" method="_on_game_node_2d_rotate_start"]
