@@ -11,7 +11,6 @@
 
 [node name="GameNode2D" type="Node2D" unique_id=215686828]
 script = ExtResource("1_sb48q")
-PlayerHealthStart = 250
 
 [node name="ParallaxienNodes" type="Node2D" parent="." unique_id=1895745010]
 
@@ -30,7 +29,7 @@ visible = false
 PivotTime = 1.0
 
 [node name="Player" parent="." unique_id=1355204698 instance=ExtResource("2_xkndl")]
-position = Vector2(50, 50)
+position = Vector2(240, 10510)
 scale = Vector2(2, 2)
 TakeoffAnimationSpeed = 1.0
 
