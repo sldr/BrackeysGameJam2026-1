@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cpm6jmwb4gxyo"]
 
-[node name="Parallax2D" type="Parallax2D" unique_id=1834095525]
+[node name="Node2D" type="Node2D" unique_id=558319553]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=532250975]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1834095525]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D" unique_id=532250975]
