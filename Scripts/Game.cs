@@ -259,14 +259,22 @@ public partial class Game : Node2D
         if (playerhealth > PlayerHealthMax) {
             this.playerhealth = PlayerHealthMax;
         }
-        if (playerhealth < 0) {
+        if (playerhealth <= 0) {
             this.playerhealth = 0;
+            ////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////
+            /// Comment out to never die
+            TriggerGameEnded();
+            /// Comment out to never die
+            ////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////
         }
         this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
     }
 
     public void ChangePlayerHealthFull()
     {
+        this.stats.HealthRestores++;
         this.playerhealth = PlayerHealthMax;
         this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
     }

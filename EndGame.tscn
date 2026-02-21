@@ -9,6 +9,7 @@
 follow_viewport_enabled = true
 script = ExtResource("1_tf8rs")
 KillsValueLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/KillsValue")
+HealthRestoresValueLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/HealthRestoresValue")
 TimeValueLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/TimeValue")
 WonLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Won")
 LostLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Lost")
@@ -81,6 +82,15 @@ layout_mode = 2
 text = "KILLS"
 
 [node name="KillsValue" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1832395203]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="HealthRestoresLabel" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=817145405]
+layout_mode = 2
+text = "HEALTH RESTORES"
+
+[node name="HealthRestoresValue" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=266665874]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
