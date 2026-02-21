@@ -37,6 +37,7 @@ angle_min = -720.0
 angle_max = 720.0
 gravity = Vector3(0, -98, 0)
 scale_min = 0.9
+scale_max = 0.9
 scale_curve = SubResource("CurveTexture_ft0uh")
 turbulence_enabled = true
 

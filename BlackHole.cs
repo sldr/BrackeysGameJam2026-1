@@ -21,8 +21,6 @@ public partial class BlackHole : Node2D
                 game.ChangePlayerHealthFull();
             }
             this.QueueFree();
-
-
         }
     }
 }

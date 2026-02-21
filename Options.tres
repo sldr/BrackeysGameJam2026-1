@@ -4,6 +4,4 @@
 
 [resource]
 script = ExtResource("1_2hgns")
-MainVolMuted = true
-MusicVolMuted = true
-SFXVolMuted = true
+MainVolumeDb = -39.0

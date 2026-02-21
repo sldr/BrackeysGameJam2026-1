@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cwggn1hd0ogor"]
+
+[ext_resource type="Script" uid="uid://dqv1d6lb6ai5h" path="res://BlackHole.cs" id="1_a25qy"]
+[ext_resource type="Texture2D" uid="uid://b4r4r5pywqbkg" path="res://RingofFire.png" id="1_ku1xe"]
+
+[sub_resource type="Environment" id="Environment_a25qy"]
+background_mode = 3
+glow_enabled = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a25qy"]
+radius = 16.0
+height = 70.0
+
+[node name="FlameRing" type="Node2D" unique_id=565543194]
+script = ExtResource("1_a25qy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1094581509]
+modulate = Color(2.4539938, 0.9412936, 0.6021639, 1)
+texture = ExtResource("1_ku1xe")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=907900378]
+environment = SubResource("Environment_a25qy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1396011405]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=517462821]
+shape = SubResource("CapsuleShape2D_a25qy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

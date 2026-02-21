@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://jb52d7ppktd5"]
+
+[ext_resource type="Script" uid="uid://dqv1d6lb6ai5h" path="res://BlackHole.cs" id="1_bkx8i"]
+[ext_resource type="Texture2D" uid="uid://b0emwy3ndxri8" path="res://Leafs/sprite_0037.png" id="1_r28yy"]
+[ext_resource type="Texture2D" uid="uid://bafk71g1dh3gp" path="res://star_07.png" id="2_5w14c"]
+
+[sub_resource type="Environment" id="Environment_r28yy"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r28yy"]
+radius = 529.01
+
+[sub_resource type="Curve" id="Curve_31hpy"]
+_data = [Vector2(0.016393445, 0.52828175), 0.0, 0.0, 0, 0, Vector2(0.71584696, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_v0ver"]
+curve = SubResource("Curve_31hpy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4mlft"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(3.305, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 217.65
+gravity = Vector3(0, -98, 0)
+scale_min = 0.01
+scale_max = 0.049999997
+scale_curve = SubResource("CurveTexture_v0ver")
+
+[node name="WaterPickup" type="Node2D" unique_id=1146638293]
+scale = Vector2(0.05, 0.05)
+script = ExtResource("1_bkx8i")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1243669132]
+environment = SubResource("Environment_r28yy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1722846375]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1096692998]
+shape = SubResource("CircleShape2D_r28yy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=400847659]
+modulate = Color(2.120526, 3.2944162, 3.2944162, 1)
+texture = ExtResource("2_5w14c")
+process_material = SubResource("ParticleProcessMaterial_4mlft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1219995713]
+modulate = Color(0, 2.3181555, 3.1450098, 1)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_r28yy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
