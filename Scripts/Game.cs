@@ -317,4 +317,9 @@ public partial class Game : Node2D
         return (Biom)intBiom;
     }
 
+    public Biom GetCurrentBiom()
+    {
+        return currentBiom; 
+    }
+
 }

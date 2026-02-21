@@ -67,6 +67,10 @@ columns = 2
 layout_mode = 2
 text = "Set EndTrigger scene's Sprite2D image to what you want"
 
+[node name="CheckBox2" type="CheckBox" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1026075224]
+layout_mode = 2
+text = "Music abrupt halt when EndGame is triggered and EndGame music"
+
 [node name="HSeparator2" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1608259106]
 layout_mode = 2
 
@@ -81,6 +85,7 @@ columns = 2
 
 [node name="CheckBox" type="CheckBox" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer2" unique_id=1371905509]
 layout_mode = 2
+button_pressed = true
 text = "Create EndGame Scene"
 
 [node name="HSeparator3" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=517657244]
