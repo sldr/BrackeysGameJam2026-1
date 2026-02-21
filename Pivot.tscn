@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://jb52d7ppktd5" path="res://WaterPickup.tscn" id="9_pfxmt"]
 [ext_resource type="PackedScene" uid="uid://cwggn1hd0ogor" path="res://flame_ring.tscn" id="10_641k1"]
 [ext_resource type="PackedScene" uid="uid://r7ck5i6ff547" path="res://fire_horse_enemy.tscn" id="11_bi42t"]
+[ext_resource type="PackedScene" uid="uid://76ouwn3ig722" path="res://RotateTrigger.tscn" id="12_r3h23"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4hw36"]
 
@@ -472,3 +473,13 @@ energy = 2.0
 shadow_enabled = true
 texture = ExtResource("2_xkoat")
 texture_scale = 7.65
+
+[node name="RotateTrigger1" parent="SceneRootNode2D" unique_id=435603144 instance=ExtResource("12_r3h23")]
+position = Vector2(12280, 10278)
+
+[node name="RotateTrigger2" parent="SceneRootNode2D" unique_id=635299135 instance=ExtResource("12_r3h23")]
+position = Vector2(13090, 654)
+rotation = 1.5707964
+
+[node name="RotateTrigger3" parent="SceneRootNode2D" unique_id=1221313217 instance=ExtResource("12_r3h23")]
+position = Vector2(522, 897)
