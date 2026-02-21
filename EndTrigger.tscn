@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bikebu14w6y4c"]
 
-[ext_resource type="Script" uid="uid://cei4e2tdurur8" path="res://EndTrigger.cs" id="1_gpob5"]
+[ext_resource type="Script" uid="uid://cei4e2tdurur8" path="res://Scripts/EndTrigger.cs" id="1_gpob5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6fab"]
 radius = 16.0
