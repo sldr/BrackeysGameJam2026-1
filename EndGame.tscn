@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://jj7vjkdhadkr"]
+
+[ext_resource type="Texture2D" uid="uid://b47x2w0f3tdp0" path="res://icon.svg" id="1_150j3"]
+[ext_resource type="Script" uid="uid://cv8vlwuyfhhur" path="res://Scripts/EndGame.cs" id="1_tf8rs"]
+[ext_resource type="StyleBox" uid="uid://5bwmerqlmg4y" path="res://style_box_flat_adjusted.tres" id="2_tf8rs"]
+[ext_resource type="PackedScene" uid="uid://4gos26xokly7" path="res://GameTitleLabel.tscn" id="3_lvmfc"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=368510566]
+follow_viewport_enabled = true
+script = ExtResource("1_tf8rs")
+KillsValueLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/KillsValue")
+TimeValueLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/TimeValue")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=2091723261]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=929931519]
+modulate = Color(1, 1, 1, 0.22352941)
+layout_mode = 2
+texture = ExtResource("1_150j3")
+
+[node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer" unique_id=162147493]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/CenterContainer" unique_id=409607225]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_tf8rs")
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer" unique_id=2007675709]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=409286124]
+layout_mode = 2
+
+[node name="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1461577166 instance=ExtResource("3_lvmfc")]
+layout_mode = 2
+
+[node name="HSeparator1" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=629873137]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1387771345]
+layout_mode = 2
+text = "STATS"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=61552119]
+layout_mode = 2
+columns = 2
+
+[node name="KillsLabel" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1942331206]
+layout_mode = 2
+text = "KILLS"
+
+[node name="KillsValue" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1832395203]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="TimeLabel" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1379014599]
+layout_mode = 2
+text = "TIME"
+
+[node name="TimeValue" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=563901797]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="HSeparator2" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=328349586]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1381247013]
+layout_mode = 2
+text = "OK"
+
+[connection signal="pressed" from="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

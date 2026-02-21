@@ -30,6 +30,7 @@ public partial class Game : Node2D
     private Tween hazardTween = null;
     private int killCount = 0;
     private float stamina=0f;
+    private GameStats stats;
 
     [Export]
     public int PlayerHealthMax = PlayerHealthInit;
@@ -70,6 +71,8 @@ public partial class Game : Node2D
     public delegate void StaminaChangedEventHandler(float newStamina, float newStaminaPercentOfMax);
     [Signal]
     public delegate void BiomChangedEventHandler(int newBiom);
+    [Signal]
+    public delegate void GameEndedEventHandler();
 
 
     public void TriggerRotateStart(bool left = false)
@@ -77,9 +80,15 @@ public partial class Game : Node2D
         EmitSignal(SignalName.RotateStart, left);
     }
 
+    public void TriggerGameEnded()
+    {
+        EmitSignal(SignalName.GameEnded);
+    }
+
     public void AddKill()
     {
         killCount++;
+        stats.Kills++;
         EmitSignal(SignalName.KillCountChanged, killCount);
     }
 
@@ -136,7 +145,7 @@ public partial class Game : Node2D
 
     public override void _Process(double delta)
     {
-        base._Process(delta);
+        stats.TimeSeconds += delta;
         // TriggerRotate(true);
         if (Input.IsActionJustPressed("pivotright")) {
             GD.Print("Player Position: ", childPlayer.Position);
@@ -152,7 +161,7 @@ public partial class Game : Node2D
 
     public override void _Ready()
     {
-        base._Ready();
+        stats = GetNode<GameStats>("/root/GameStats");
         this.childRotateSceneTree = GetChild<Pivot>(1);
         this.childPlayer = GetChild<CharacterBody2D>(2);
         this.botBiomParallax = GetNode<ParallaxScene>("ParallaxienNodes/BottomBiomParallax");

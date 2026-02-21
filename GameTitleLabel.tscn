@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://4gos26xokly7"]
+
+[node name="Label" type="Label" unique_id=1461577166]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 22
+text = "H O L L O W
+E A R T H"
+horizontal_alignment = 1
