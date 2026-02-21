@@ -279,10 +279,9 @@ public partial class Test : StateManager
                         Variant HazardLevel = tileData.GetCustomData("HazardLevel");
                         if (HazardLevel.VariantType == Variant.Type.Int) {
                             int HazardLevelInt = (int)HazardLevel;
-                            if (HazardLevelInt == 0) {
-                                return;
+                            if (HazardLevelInt != 0) {
+                                game.HazardHit(HazardLevelInt);
                             }
-                            game.HazardHit(HazardLevelInt);
                         }
                     }
                 }

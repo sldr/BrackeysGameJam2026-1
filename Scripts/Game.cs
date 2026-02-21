@@ -277,7 +277,6 @@ public partial class Game : Node2D
         if (inHazardCoolDown) {
             return;
         }
-        inHazardCoolDown = true;
         switch (hazardLevel) {
             case 1:
                 ChangePlayerHealth(-this.HazardCollLay2);
@@ -292,6 +291,7 @@ public partial class Game : Node2D
             default:
                 return;
         }
+        inHazardCoolDown = true;
         hazardTween = CreateTween();
         hazardTween.SetLoops(1);
         hazardTween.TweenProperty(childPlayer, "modulate:a", 0f, this.HazardCoolDownBlink1);
