@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://ccybcn53pjfx5"]
 
+[ext_resource type="Script" uid="uid://cenp2uyak6age" path="res://Scripts/ParallaxScene.cs" id="1_vtgts"]
+
 [node name="Node2D" type="Node2D" unique_id=576741041]
+script = ExtResource("1_vtgts")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1834095525]
 

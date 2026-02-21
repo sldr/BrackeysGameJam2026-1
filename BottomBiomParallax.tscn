@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://c38kl8342bhh8"]
 
 [ext_resource type="TileSet" uid="uid://c1jg3gmecns63" path="res://MoonRocksTileSet.tres" id="1_lh646"]
+[ext_resource type="Script" uid="uid://cenp2uyak6age" path="res://Scripts/ParallaxScene.cs" id="1_wogn0"]
 [ext_resource type="PackedScene" uid="uid://c00trpartmh8o" path="res://moon_rocks.tscn" id="2_lh646"]
 
 [node name="Node2D" type="Node2D" unique_id=421058957]
+script = ExtResource("1_wogn0")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1834095525]
 scroll_scale = Vector2(0.1, 0.1)

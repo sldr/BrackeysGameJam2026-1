@@ -6,7 +6,7 @@ public partial class Pivot : Node2D
 {
 
     private Node2D PlayerNode;
-    private Node2D childRotateNode2D;
+    private Node2D pivotNodeChildNode2D;
     private Tween rotTween = null;
     private int rot = 0;
     private float _SideLength = 14000f;
@@ -77,7 +77,7 @@ public partial class Pivot : Node2D
 
     public override void _Ready()
     {
-        this.childRotateNode2D = this.GetChild<Node2D>(0);
+        this.pivotNodeChildNode2D = this.GetChild<Node2D>(0);
         if (_NeedsApplySideLength) {
             ApplySideLength();
         }
@@ -89,10 +89,10 @@ public partial class Pivot : Node2D
             GD.Print("No rotate during rotate");
             return;
         }
-        GD.Print("Player Position: ", PlayerNode.Position);
+        GD.Print("Player Position: ", PlayerNode.Position, " Global Position: ", PlayerNode.GlobalPosition);
         Vector2 adjustPosition = this.PlayerNode.GlobalPosition - this.GlobalPosition;
         this.GlobalPosition = this.GlobalPosition + adjustPosition;
-        this.childRotateNode2D.GlobalPosition = this.childRotateNode2D.GlobalPosition - adjustPosition;
+        this.pivotNodeChildNode2D.GlobalPosition = this.pivotNodeChildNode2D.GlobalPosition - adjustPosition;
         if (left) {
             rot -= 90;
         } else {
@@ -107,7 +107,7 @@ public partial class Pivot : Node2D
 
     private void RotTween_Finished()
     {
-        GD.Print("Finished rot", this.childRotateNode2D.Position);
+        GD.Print("Finished rot", this.pivotNodeChildNode2D.Position);
         this.rotTween = null;
         TriggerRotateFinished();
     }
@@ -119,8 +119,8 @@ public partial class Pivot : Node2D
 
     public Vector2 GetTopLeftGlobalPosition()
     {
-        GD.Print("GetTopLeftGlobalPosition: ", this.childRotateNode2D.GlobalPosition);
-        return this.childRotateNode2D.GlobalPosition;
+        GD.Print("GetTopLeftGlobalPosition: ", this.pivotNodeChildNode2D.GlobalPosition);
+        return this.pivotNodeChildNode2D.GlobalPosition;
     }
 
     private void QueueRedrawRecursive(Node node)

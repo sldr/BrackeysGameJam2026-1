@@ -18,13 +18,10 @@ script = ExtResource("1_sb48q")
 [node name="BottomBiomParallax" parent="ParallaxienNodes" unique_id=1834095525 instance=ExtResource("5_joorw")]
 
 [node name="RightBiomParallax" parent="ParallaxienNodes" unique_id=630453241 instance=ExtResource("6_2vekm")]
-visible = false
 
 [node name="TopBiomParallax" parent="ParallaxienNodes" unique_id=1650864976 instance=ExtResource("7_yx171")]
-visible = false
 
 [node name="LeftBiomParallax" parent="ParallaxienNodes" unique_id=1381611184 instance=ExtResource("8_yhmtn")]
-visible = false
 
 [node name="Pivot" parent="." unique_id=105369423 instance=ExtResource("4_t88pq")]
 PivotTime = 1.0

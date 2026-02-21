@@ -17,10 +17,10 @@ public partial class Game : Node2D
 
     private Pivot childRotateSceneTree;
     private CharacterBody2D childPlayer;
-    private Node2D botBiomParallax;
-    private Node2D rgtBiomParallax;
-    private Node2D topBiomParallax;
-    private Node2D lftBiomParallax;
+    private ParallaxScene botBiomParallax;
+    private ParallaxScene rgtBiomParallax;
+    private ParallaxScene topBiomParallax;
+    private ParallaxScene lftBiomParallax;
     private Biom currentBiom = Biom.Bottom;
     private Hud hud;
     private int playerhealth;
@@ -68,6 +68,9 @@ public partial class Game : Node2D
     public delegate void KillCountChangedEventHandler(int newCount);
     [Signal]
     public delegate void StaminaChangedEventHandler(float newStamina, float newStaminaPercentOfMax);
+    [Signal]
+    public delegate void BiomChangedEventHandler(int newBiom);
+
 
     private void TriggerRotateStart(bool left = false)
     {
@@ -126,6 +129,11 @@ public partial class Game : Node2D
         EmitSignal(SignalName.StaminaChanged, stamina, 100.0f);
     }
 
+    private void TriggerBiomChange()
+    {
+        EmitSignal(SignalName.BiomChanged, (int)currentBiom);
+    }
+
     public override void _Process(double delta)
     {
         base._Process(delta);
@@ -147,10 +155,14 @@ public partial class Game : Node2D
         base._Ready();
         this.childRotateSceneTree = GetChild<Pivot>(1);
         this.childPlayer = GetChild<CharacterBody2D>(2);
-        this.botBiomParallax = GetNode<Node2D>("ParallaxienNodes/BottomBiomParallax");
-        this.rgtBiomParallax = GetNode<Node2D>("ParallaxienNodes/RightBiomParallax");
-        this.topBiomParallax = GetNode<Node2D>("ParallaxienNodes/TopBiomParallax");
-        this.lftBiomParallax = GetNode<Node2D>("ParallaxienNodes/LeftBiomParallax");
+        this.botBiomParallax = GetNode<ParallaxScene>("ParallaxienNodes/BottomBiomParallax");
+        this.botBiomParallax.setRotateFinishedHandler();
+        this.rgtBiomParallax = GetNode<ParallaxScene>("ParallaxienNodes/RightBiomParallax");
+        this.rgtBiomParallax.setRotateFinishedHandler();
+        this.topBiomParallax = GetNode<ParallaxScene>("ParallaxienNodes/TopBiomParallax");
+        this.topBiomParallax.setRotateFinishedHandler();
+        this.lftBiomParallax = GetNode<ParallaxScene>("ParallaxienNodes/LeftBiomParallax");
+        this.lftBiomParallax.setRotateFinishedHandler();
         this.hud = GetNode<Hud>("HUD");
         this.childRotateSceneTree.SetPlayer(this.childPlayer);
         enableBiom(Biom.Bottom);
@@ -173,13 +185,14 @@ public partial class Game : Node2D
 
     public void AddRotateFinishedHandler(RotateFinishedEventHandler anotherRotateFinishedHandler)
     {
-        if (anotherRotateFinishedHandler == null) {
+        if (anotherRotateFinishedHandler != null) {
             this.childRotateSceneTree.AddRotateFinishedHandler(anotherRotateFinishedHandler);
         }
     }
 
     public void enableBiom(Biom biom)
     {
+        GD.Print("EnableBiom called");
         switch (biom) {
             case Biom.Bottom:
                 GD.Print("Bottom Biom Enabled");
@@ -187,7 +200,8 @@ public partial class Game : Node2D
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.botBiomParallax.Visible = true;
-                this.botBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.botBiomParallax.resetParallaxScene(this.childPlayer.GlobalPosition);
+                //this.botBiomParallax.GlobalPosition = this.childPlayer.GlobalPosition;  //this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Right:
                 GD.Print("Right Biom Enabled");
@@ -195,7 +209,8 @@ public partial class Game : Node2D
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.rgtBiomParallax.Visible = true;
-                this.rgtBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.rgtBiomParallax.resetParallaxScene(this.childPlayer.GlobalPosition);
+                //this.rgtBiomParallax.GlobalPosition = this.childPlayer.GlobalPosition;  //Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Top:
                 GD.Print("Top Biom Enabled");
@@ -203,7 +218,8 @@ public partial class Game : Node2D
                 this.rgtBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = false;
                 this.topBiomParallax.Visible = true;
-                this.topBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.topBiomParallax.resetParallaxScene(this.childPlayer.GlobalPosition);
+                //this.topBiomParallax.GlobalPosition = this.childPlayer.GlobalPosition;  //Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.Left:
                 GD.Print("Left Biom Enabled");
@@ -211,7 +227,8 @@ public partial class Game : Node2D
                 this.rgtBiomParallax.Visible = false;
                 this.topBiomParallax.Visible = false;
                 this.lftBiomParallax.Visible = true;
-                this.lftBiomParallax.Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
+                this.lftBiomParallax.resetParallaxScene(this.childPlayer.GlobalPosition);
+                //this.lftBiomParallax.GlobalPosition = this.childPlayer.GlobalPosition;  //Position = this.childRotateSceneTree.GetTopLeftGlobalPosition();
                 break;
             case Biom.None:
             default:
@@ -222,6 +239,7 @@ public partial class Game : Node2D
                 this.lftBiomParallax.Visible = false;
                 break;
         }
+        this.TriggerBiomChange();
     }
 
     public void ChangePlayerHealth(int change)
@@ -285,5 +303,9 @@ public partial class Game : Node2D
         return Mathf.Abs(a - b) < tolerance;
     }
 
+    public static Biom intToBiom(int intBiom)
+    {
+        return (Biom)intBiom;
+    }
 
 }

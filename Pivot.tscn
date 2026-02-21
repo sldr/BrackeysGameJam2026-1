@@ -29,7 +29,6 @@ glow_enabled = true
 glow_blend_mode = 0
 
 [node name="PivotNode2D" type="Node2D" unique_id=105369423]
-rotation = 1.5707964
 script = ExtResource("2_h22b5")
 PivotTime = 0.5
 
