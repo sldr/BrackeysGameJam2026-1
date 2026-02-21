@@ -72,7 +72,7 @@ public partial class Game : Node2D
     public delegate void BiomChangedEventHandler(int newBiom);
 
 
-    private void TriggerRotateStart(bool left = false)
+    public void TriggerRotateStart(bool left = false)
     {
         EmitSignal(SignalName.RotateStart, left);
     }

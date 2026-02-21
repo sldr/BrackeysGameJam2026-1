@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://22a5vnrfu8kl" path="res://Scripts/RotateTrigger.cs" id="1_17g3h"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wajm"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17g3h"]
+height = 700.0
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=136459689]
-collision_layer = 256
-collision_mask = 256
+[node name="Area2D" type="Area2D" unique_id=435603144]
 script = ExtResource("1_17g3h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1423371750]
-shape = SubResource("CapsuleShape2D_1wajm")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1897957793]
+shape = SubResource("CapsuleShape2D_17g3h")
