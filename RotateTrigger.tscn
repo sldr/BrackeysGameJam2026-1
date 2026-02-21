@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://76ouwn3ig722"]
+
+[ext_resource type="Script" uid="uid://22a5vnrfu8kl" path="res://Scripts/RotateTrigger.cs" id="1_17g3h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wajm"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=136459689]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_17g3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1423371750]
+shape = SubResource("CapsuleShape2D_1wajm")
