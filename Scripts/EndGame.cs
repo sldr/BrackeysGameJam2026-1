@@ -7,6 +7,10 @@ public partial class EndGame : CanvasLayer
     public NodePath KillsValueLabelNodePath;
     [Export]
     public NodePath TimeValueLabelNodePath;
+    [Export]
+    public NodePath WonLabelNodePath;
+    [Export]
+    public NodePath LostLabelNodePath;
 
     public void _on_button_pressed()
     {
@@ -17,6 +21,11 @@ public partial class EndGame : CanvasLayer
     public override void _Ready()
     {
         GameStats stats = GetNode<GameStats>("/root/GameStats");
+        if (stats.WonGame) {
+            this.GetNode<Label>(this.LostLabelNodePath).QueueFree();
+        } else {
+            this.GetNode<Label>(this.WonLabelNodePath).QueueFree();
+        }
         this.GetNode<Label>(this.KillsValueLabelNodePath).Text = $"{stats.Kills}";
         int mins = (int)(stats.TimeSeconds / 60);
         int secs = (int)(stats.TimeSeconds % 60);

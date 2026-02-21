@@ -146,7 +146,6 @@ public partial class Game : Node2D
     public override void _Process(double delta)
     {
         stats.TimeSeconds += delta;
-        // TriggerRotate(true);
         if (Input.IsActionJustPressed("pivotright")) {
             GD.Print("Player Position: ", childPlayer.Position);
             GD.Print("Pivot Right pressed this frame");

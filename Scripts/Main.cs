@@ -7,6 +7,7 @@ public partial class Main : Node2D
     {
         GD.Print ("Play button pressed");
         GameStats stats = GetNode<GameStats>("/root/GameStats");
+        stats.WonGame = false;
         stats.Kills = 0;
         stats.TimeSeconds = 0;
         GetTree().ChangeSceneToFile("res://Game.tscn");

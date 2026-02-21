@@ -11,7 +11,8 @@ public partial class EndTrigger : Node2D
             game = GetTree().CurrentScene as Game;
         }
         if (body is CharacterBody2D player && player.IsInGroup("Player") && game.GetCurrentBiom() == Game.Biom.Left) {
-            GD.Print("Player triggered end game");
+            GD.Print("Player triggered end game WIN");
+            GetNode<GameStats>("/root/GameStats").WonGame = true;
             GetTree().ChangeSceneToFile("res://EndGame.tscn");
         }
     }

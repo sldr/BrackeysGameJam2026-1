@@ -8,17 +8,17 @@ public partial class ParallaxScene : Node2D
     {
         this.parentname = this.GetParent().Name;
         this.VisibilityChanged += ParallaxScene_VisibilityChanged;
-        GD.Print("[REDY] Position ", parentname, " ", this.Name, " Visable: ", this.Visible, " Pos:", this.Position, " Scroll Offset: ", this.GetChild<Parallax2D>(0).ScrollOffset);
+        //GD.Print("[REDY] Position ", parentname, " ", this.Name, " Visable: ", this.Visible, " Pos:", this.Position, " Scroll Offset: ", this.GetChild<Parallax2D>(0).ScrollOffset);
     }
 
     private void rotateFinishedHandler(bool left)
     {
-        GD.Print("[RFIN] Position ", parentname, " ", this.Name, " Visable: ", this.Visible, " Pos:", this.Position, " Scroll Offset: ", this.GetChild<Parallax2D>(0).ScrollOffset);
+        //GD.Print("[RFIN] Position ", parentname, " ", this.Name, " Visable: ", this.Visible, " Pos:", this.Position, " Scroll Offset: ", this.GetChild<Parallax2D>(0).ScrollOffset);
     }
 
     private void ParallaxScene_VisibilityChanged()
     {
-        GD.Print("[VICH] Position ", parentname, " ", this.Name, " Visable: ", this.Visible, " Pos:", this.Position, " Scroll Offset: ", this.GetChild<Parallax2D>(0).ScrollOffset);
+        //GD.Print("[VICH] Position ", parentname, " ", this.Name, " Visable: ", this.Visible, " Pos:", this.Position, " Scroll Offset: ", this.GetChild<Parallax2D>(0).ScrollOffset);
     }
 
     public void setRotateFinishedHandler()

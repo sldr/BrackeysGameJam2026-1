@@ -10,6 +10,8 @@ follow_viewport_enabled = true
 script = ExtResource("1_tf8rs")
 KillsValueLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/KillsValue")
 TimeValueLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/TimeValue")
+WonLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Won")
+LostLabelNodePath = NodePath("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Lost")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=2091723261]
 anchors_preset = 8
@@ -50,6 +52,19 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HSeparator1" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=629873137]
+layout_mode = 2
+
+[node name="Won" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=365946040]
+layout_mode = 2
+text = " SURVIVOR"
+horizontal_alignment = 1
+
+[node name="Lost" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1343558286]
+layout_mode = 2
+text = "DIED"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=522652533]
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1387771345]
