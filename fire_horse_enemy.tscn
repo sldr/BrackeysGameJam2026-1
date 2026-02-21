@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://r7ck5i6ff547"]
+
+[ext_resource type="Script" uid="uid://df7s5v0iimmnp" path="res://HatGuyEnemy.cs" id="1_lsx2n"]
+[ext_resource type="Texture2D" uid="uid://dqg2d1x5yfjb" path="res://FireHorse.png" id="1_mvodf"]
+[ext_resource type="Texture2D" uid="uid://dspe0grm8ptmd" path="res://FireHorseFire.png" id="2_lsx2n"]
+
+[sub_resource type="Environment" id="Environment_wdebi"]
+background_mode = 3
+glow_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvodf"]
+size = Vector2(30, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsx2n"]
+size = Vector2(36, 64)
+
+[node name="FireHorse" type="StaticBody2D" unique_id=375349778 groups=["enemies"]]
+script = ExtResource("1_lsx2n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869469218]
+texture = ExtResource("1_mvodf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2118188625]
+modulate = Color(3.5629182, 3.5629182, 3.5629182, 1)
+texture = ExtResource("2_lsx2n")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1065245657]
+environment = SubResource("Environment_wdebi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=924516035]
+position = Vector2(1, -8.5)
+shape = SubResource("RectangleShape2D_mvodf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1567817013]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1292137186]
+position = Vector2(1, -9)
+shape = SubResource("RectangleShape2D_lsx2n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
