@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c8poklgo370tv"]
+
+[ext_resource type="Texture2D" uid="uid://b47x2w0f3tdp0" path="res://icon.svg" id="1_v6u1p"]
+[ext_resource type="StyleBox" uid="uid://5bwmerqlmg4y" path="res://style_box_flat_adjusted.tres" id="2_74ex2"]
+[ext_resource type="PackedScene" uid="uid://4gos26xokly7" path="res://GameTitleLabel.tscn" id="3_u3inm"]
+
+[node name="Control" type="Control" unique_id=517849281]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=309355671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=524273244]
+modulate = Color(1, 1, 1, 0.22352941)
+layout_mode = 2
+texture = ExtResource("1_v6u1p")
+
+[node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer" unique_id=1056907188]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/CenterContainer" unique_id=1362018189]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_74ex2")
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer" unique_id=347791301]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=538905461]
+layout_mode = 2
+
+[node name="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1461577166 instance=ExtResource("3_u3inm")]
+layout_mode = 2
+
+[node name="HSeparator1" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=506238062]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1447560527]
+layout_mode = 2
+text = "Garrett Tasks"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1650958960]
+layout_mode = 2
+columns = 2
+
+[node name="CheckBox" type="CheckBox" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=875663317]
+layout_mode = 2
+text = "Set EndTrigger scene's Sprite2D image to what you want"
+
+[node name="HSeparator2" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1608259106]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1350235748]
+layout_mode = 2
+text = "Stephen Tasks"
+horizontal_alignment = 1
+
+[node name="GridContainer2" type="GridContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2010738382]
+layout_mode = 2
+columns = 2
+
+[node name="CheckBox" type="CheckBox" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer2" unique_id=1371905509]
+layout_mode = 2
+text = "Create EndGame Scene"
+
+[node name="HSeparator3" type="HSeparator" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=517657244]
+layout_mode = 2
