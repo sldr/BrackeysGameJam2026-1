@@ -79,7 +79,7 @@ columns = 2
 
 [node name="KillsLabel" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1942331206]
 layout_mode = 2
-text = "KILLS"
+text = "ENEMY UNALIVES"
 
 [node name="KillsValue" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1832395203]
 layout_mode = 2
@@ -94,6 +94,10 @@ text = "HEALTH RESTORES"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=544050862]
+layout_mode = 2
+theme_override_constants/margin_left = 15
 
 [node name="TimeLabel" type="Label" parent="AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1379014599]
 layout_mode = 2
