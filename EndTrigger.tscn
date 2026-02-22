@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bikebu14w6y4c"]
 
 [ext_resource type="Script" uid="uid://cei4e2tdurur8" path="res://Scripts/EndTrigger.cs" id="1_gpob5"]
+[ext_resource type="PackedScene" uid="uid://nqua0yuwvomv" path="res://dimensional_portal.tscn" id="2_3qlyw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6fab"]
-radius = 16.0
+radius = 46.173584
 
 [node name="Node2D" type="Node2D" unique_id=647607728]
 script = ExtResource("1_gpob5")
@@ -13,6 +14,6 @@ script = ExtResource("1_gpob5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=665257825]
 shape = SubResource("CircleShape2D_o6fab")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1136076964]
+[node name="DimensionalPortal" parent="." unique_id=917344245 instance=ExtResource("2_3qlyw")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

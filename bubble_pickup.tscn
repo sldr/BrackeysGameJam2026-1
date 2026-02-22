@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7fhia8pfxt43"]
 
 [ext_resource type="Texture2D" uid="uid://b47x2w0f3tdp0" path="res://icon.svg" id="1_4gcic"]
-[ext_resource type="Script" uid="uid://dqv1d6lb6ai5h" path="res://BlackHole.cs" id="1_mkxn7"]
+[ext_resource type="Script" uid="uid://cqd6awcohminx" path="res://Scripts/BubblePickup.cs" id="1_6hkv5"]
 [ext_resource type="Shader" uid="uid://bigv71citqpd1" path="res://CircleShader.gdshader" id="3_6hkv5"]
 
 [sub_resource type="Shader" id="Shader_mkxn7"]
@@ -78,7 +78,7 @@ scale_min = 3.0
 scale_max = 4.0
 
 [node name="BubblePickup" type="Node2D" unique_id=1153508856]
-script = ExtResource("1_mkxn7")
+script = ExtResource("1_6hkv5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248828190]
 material = SubResource("ShaderMaterial_pp0vw")
@@ -100,3 +100,4 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_mkxn7")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]

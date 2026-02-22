@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bt0mc0ecpwggo"]
+
+[ext_resource type="Texture2D" uid="uid://b5blttngerglj" path="res://Leafs/sprite_0031.png" id="1_by3p1"]
+[ext_resource type="Script" uid="uid://dqv1d6lb6ai5h" path="res://BlackHole.cs" id="1_ug7wm"]
+
+[sub_resource type="Environment" id="Environment_ug7wm"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_by3p1"]
+radius = 278.0
+height = 1118.0
+
+[node name="LeafPickup" type="Node2D" unique_id=1025853109]
+script = ExtResource("1_ug7wm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=948824668]
+modulate = Color(0, 10.018106, 0, 1)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_by3p1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1263820891]
+environment = SubResource("Environment_ug7wm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2001488366]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=291711914]
+shape = SubResource("CapsuleShape2D_by3p1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
