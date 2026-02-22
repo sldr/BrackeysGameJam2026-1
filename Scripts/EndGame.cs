@@ -33,5 +33,11 @@ public partial class EndGame : CanvasLayer
         int mins = (int)(stats.TimeSeconds / 60);
         int secs = (int)(stats.TimeSeconds % 60);
         this.GetNode<Label>(this.TimeValueLabelNodePath).Text = $"{mins:00}:{secs:00}";
+        int[] pickupCounts = stats.GetPickupCounts();
+        this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/BlackHolesValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.BlackHoles]}";
+        this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/FireOrbsValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.FireOrbs]}";
+        this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/FireRingsValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.FireRings]}";
+        this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/WaterLeafsValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.WaterLeafs]}";
+        this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/BubblesValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.Bubble]}";
     }
 }
