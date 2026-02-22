@@ -272,9 +272,9 @@ public partial class Game : Node2D
         this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
     }
 
-    public void ChangePlayerHealthFull()
+    public void ChangePlayerHealthFull(GameStats.PickupTypes pickupType)
     {
-        this.stats.HealthRestores++;
+        stats.AddHealthRestore(pickupType);
         this.playerhealth = PlayerHealthMax;
         this.hud.UpdateHealthPercent(playerhealth * 100 / PlayerHealthMax);
     }

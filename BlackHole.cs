@@ -3,6 +3,10 @@ using System;
 
 public partial class BlackHole : Node2D
 {
+
+    [Export]
+    public GameStats.PickupTypes PickupType;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -18,7 +22,7 @@ public partial class BlackHole : Node2D
 		if (body.IsInGroup("Player")) {
             Game game = GetTree().CurrentScene as Game;
             if (game != null) {
-                game.ChangePlayerHealthFull();
+                game.ChangePlayerHealthFull(PickupType);
             }
             this.QueueFree();
         }

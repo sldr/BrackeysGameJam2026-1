@@ -29,7 +29,7 @@ public partial class EndGame : CanvasLayer
             this.GetNode<Label>(this.WonLabelNodePath).QueueFree();
         }
         this.GetNode<Label>(this.KillsValueLabelNodePath).Text = $"{stats.Kills}";
-        this.GetNode<Label>(this.HealthRestoresValueLabelNodePath).Text = $"{stats.HealthRestores}";
+        this.GetNode<Label>(this.HealthRestoresValueLabelNodePath).Text = $"{stats.GetHealthRestores()}";
         int mins = (int)(stats.TimeSeconds / 60);
         int secs = (int)(stats.TimeSeconds % 60);
         this.GetNode<Label>(this.TimeValueLabelNodePath).Text = $"{mins:00}:{secs:00}";
