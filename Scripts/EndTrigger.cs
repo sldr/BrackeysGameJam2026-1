@@ -12,7 +12,7 @@ public partial class EndTrigger : Node2D
         }
         if (body is CharacterBody2D player && player.IsInGroup("Player") && game.GetCurrentBiom() == Game.Biom.Left) {
             GD.Print("Player triggered end game WIN");
-            game.TriggerGameEnded();
+            game.TriggerGameEnded(true);
         }
     }
 
