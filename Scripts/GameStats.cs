@@ -11,6 +11,7 @@ public partial class GameStats : Node
         FireRings = 2,
         WaterLeafs = 3,
         Bubble = 4,
+        Leafs = 5,
     }
 
     private int[] PickupCounts = new int[Enum.GetValues(typeof(PickupTypes)).Length];

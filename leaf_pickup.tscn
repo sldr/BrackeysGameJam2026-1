@@ -14,6 +14,7 @@ height = 1118.0
 
 [node name="LeafPickup" type="Node2D" unique_id=1025853109]
 script = ExtResource("1_ug7wm")
+PickupType = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=948824668]
 modulate = Color(0, 10.018106, 0, 1)

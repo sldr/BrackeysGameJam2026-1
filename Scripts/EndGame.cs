@@ -39,5 +39,6 @@ public partial class EndGame : CanvasLayer
         this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/FireRingsValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.FireRings]}";
         this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/WaterLeafsValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.WaterLeafs]}";
         this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/BubblesValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.Bubble]}";
+        this.GetNode<Label>("AspectRatioContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/LeafsValue").Text = $"{pickupCounts[(int)GameStats.PickupTypes.Leafs]}";
     }
 }

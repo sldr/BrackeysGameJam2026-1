@@ -13,6 +13,7 @@ height = 70.0
 
 [node name="FlameRing" type="Node2D" unique_id=565543194]
 script = ExtResource("1_a25qy")
+PickupType = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1094581509]
 modulate = Color(2.4539938, 0.9412936, 0.6021639, 1)

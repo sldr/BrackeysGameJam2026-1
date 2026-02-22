@@ -32,6 +32,7 @@ scale_curve = SubResource("CurveTexture_v0ver")
 [node name="WaterPickup" type="Node2D" unique_id=1146638293]
 scale = Vector2(0.05, 0.05)
 script = ExtResource("1_bkx8i")
+PickupType = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1243669132]
 environment = SubResource("Environment_r28yy")

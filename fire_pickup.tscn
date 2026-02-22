@@ -9,6 +9,7 @@ height = 22.0
 
 [node name="FirePickup" type="Node2D" unique_id=1904030403]
 script = ExtResource("1_4cfdr")
+PickupType = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=732201473]
 modulate = Color(18.892157, 6.050024, 0, 1)

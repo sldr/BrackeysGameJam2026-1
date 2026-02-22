@@ -12,10 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://cy4nfhmqjb1ea" path="res://Audio/fireloop_final.wav" id="10_yyih5"]
 [ext_resource type="AudioStream" uid="uid://bel7kvbioy24l" path="res://Audio/waterloop_final.wav" id="11_qjyg3"]
 [ext_resource type="AudioStream" uid="uid://c4jhsdqxc8ymc" path="res://Audio/forestloop_final.wav" id="12_elkpi"]
-[ext_resource type="AudioStream" uid="uid://cx3imioqjcod" path="res://Audio/introscene_final.wav" id="13_0yprl"]
+[ext_resource type="Script" uid="uid://cpd2y4wtgha8n" path="res://Scripts/Music.cs" id="13_lvtmh"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_wuoie"]
-clip_count = 5
+clip_count = 4
 clip_0/name = &"Moonloop Final"
 clip_0/stream = ExtResource("9_lvtmh")
 clip_0/auto_advance = 0
@@ -28,9 +28,6 @@ clip_2/auto_advance = 0
 clip_3/name = &"Forestloop Final"
 clip_3/stream = ExtResource("12_elkpi")
 clip_3/auto_advance = 0
-clip_4/name = &"Introscene Final"
-clip_4/stream = ExtResource("13_0yprl")
-clip_4/auto_advance = 2
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 16.0,
@@ -54,7 +51,6 @@ script = ExtResource("1_sb48q")
 [node name="LeftBiomParallax" parent="ParallaxienNodes" unique_id=1381611184 instance=ExtResource("8_yhmtn")]
 
 [node name="Pivot" parent="." unique_id=105369423 instance=ExtResource("4_t88pq")]
-PivotTime = 1.0
 
 [node name="Player" parent="." unique_id=1355204698 instance=ExtResource("2_xkndl")]
 position = Vector2(240, 10510)
@@ -70,5 +66,6 @@ position_smoothing_enabled = true
 stream = SubResource("AudioStreamInteractive_wuoie")
 autoplay = true
 bus = &"Music"
+script = ExtResource("13_lvtmh")
 
 [connection signal="RotateStart" from="." to="Pivot" method="_on_game_node_2d_rotate_start"]

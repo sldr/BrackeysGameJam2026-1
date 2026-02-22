@@ -38,7 +38,6 @@ glow_enabled = true
 glow_blend_mode = 0
 
 [node name="PivotNode2D" type="Node2D" unique_id=105369423]
-rotation = 3.1415927
 script = ExtResource("2_h22b5")
 
 [node name="SceneRootNode2D" type="Node2D" parent="." unique_id=1797306293]
@@ -686,3 +685,5 @@ position = Vector2(1452, 758.9999)
 [node name="EndTrigger" parent="SceneRootNode2D" unique_id=647607728 instance=ExtResource("13_pwwmg")]
 position = Vector2(262.99957, 9787)
 rotation = 1.5707964
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SceneRootNode2D" unique_id=475145392]
