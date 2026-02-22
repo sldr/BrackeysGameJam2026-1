@@ -80,9 +80,11 @@ public partial class Game : Node2D
         EmitSignal(SignalName.RotateStart, left);
     }
 
-    public void TriggerGameEnded()
+    public void TriggerGameEnded(bool won = false)
     {
         EmitSignal(SignalName.GameEnded);
+        GetNode<GameStats>("/root/GameStats").WonGame = won;
+        GetTree().ChangeSceneToFile("res://EndGame.tscn");
     }
 
     public void AddKill()
@@ -146,16 +148,22 @@ public partial class Game : Node2D
     public override void _Process(double delta)
     {
         stats.TimeSeconds += delta;
-        if (Input.IsActionJustPressed("pivotright")) {
-            GD.Print("Player Position: ", childPlayer.Position);
-            GD.Print("Pivot Right pressed this frame");
-            TriggerRotateStart();
-        }
-        if (Input.IsActionJustPressed("pivotleft")) {
-            GD.Print("Player Position: ", childPlayer.Position);
-            GD.Print("Pivot Left pressed this frame");
-            TriggerRotateStart(true);
-        }
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        /// UnComment out to debug game
+        //if (Input.IsActionJustPressed("pivotright")) {
+        //    GD.Print("Player Position: ", childPlayer.Position);
+        //    GD.Print("Pivot Right pressed this frame");
+        //    TriggerRotateStart();
+        //}
+        //if (Input.IsActionJustPressed("pivotleft")) {
+        //    GD.Print("Player Position: ", childPlayer.Position);
+        //    GD.Print("Pivot Left pressed this frame");
+        //    TriggerRotateStart(true);
+        //}
+        /// UnComment out to debug game
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
     }
 
     public override void _Ready()
