@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jj7vjkdhadkr"]
 
-[ext_resource type="Texture2D" uid="uid://b47x2w0f3tdp0" path="res://icon.svg" id="1_150j3"]
 [ext_resource type="Script" uid="uid://cv8vlwuyfhhur" path="res://Scripts/EndGame.cs" id="1_tf8rs"]
+[ext_resource type="Texture2D" uid="uid://0ijeqoxajimf" path="res://Blackhole.png" id="2_lvmfc"]
 [ext_resource type="StyleBox" uid="uid://5bwmerqlmg4y" path="res://style_box_flat_adjusted.tres" id="2_tf8rs"]
 [ext_resource type="PackedScene" uid="uid://4gos26xokly7" path="res://GameTitleLabel.tscn" id="3_lvmfc"]
 [ext_resource type="AudioStream" uid="uid://cx3imioqjcod" path="res://Audio/introscene_final.wav" id="5_lvmfc"]
@@ -31,7 +31,7 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=929931519]
 modulate = Color(1, 1, 1, 0.22352941)
 layout_mode = 2
-texture = ExtResource("1_150j3")
+texture = ExtResource("2_lvmfc")
 
 [node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer" unique_id=162147493]
 layout_mode = 2
