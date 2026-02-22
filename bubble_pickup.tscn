@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://b7fhia8pfxt43"]
+
+[ext_resource type="Texture2D" uid="uid://b47x2w0f3tdp0" path="res://icon.svg" id="1_4gcic"]
+[ext_resource type="Script" uid="uid://dqv1d6lb6ai5h" path="res://BlackHole.cs" id="1_mkxn7"]
+[ext_resource type="Shader" uid="uid://bigv71citqpd1" path="res://CircleShader.gdshader" id="3_6hkv5"]
+
+[sub_resource type="Shader" id="Shader_mkxn7"]
+code = "shader_type canvas_item;
+
+const vec2 center = vec2(0.5);
+uniform float radius: hint_range(0.0, 1.0) = 0.5;
+uniform float width: hint_range(0.0, 1.0) = 0.5;
+uniform vec2 highlight_center;
+uniform float highlight_alpha: hint_range(0.0, 1.0) = 0.5;
+uniform vec3 main_color: source_color;
+uniform vec3 highlight_color: source_color;
+uniform float glow: hint_range(0.0, 1.0);
+uniform sampler2D noise: repeat_enable;
+
+void fragment() {
+	// main shape
+	float circle_main = step(distance(UV, center), radius);
+	float circle_inner = smoothstep(width * 0.5, 1, distance(UV, center));
+	float main_shape = circle_main * circle_inner;
+	
+	// hightlight shape
+	float highlight_shape = pow(1.0 - distance(highlight_center, UV),3.0) * highlight_alpha * main_shape;
+	
+	// colors
+	vec3 color = main_color * main_shape + highlight_shape * highlight_color;
+	color *= vec3(1.0 + glow * 5.0);
+	
+	// texture
+	float texture_alpha = texture(noise, UV + vec2(TIME * 0.1, 0.0)).r * 3.0;
+	
+	COLOR.a = (main_shape + highlight_shape) * texture_alpha;
+	COLOR.rgb = color;
+}
+
+void vertex() {
+	VERTEX += normalize(VERTEX) * 50.0 * sin(TIME) * 0.1;
+}
+
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6hkv5"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_msbtm"]
+noise = SubResource("FastNoiseLite_6hkv5")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pp0vw"]
+shader = SubResource("Shader_mkxn7")
+shader_parameter/radius = 0.5
+shader_parameter/width = 0.5
+shader_parameter/highlight_center = Vector2(0.275, 0)
+shader_parameter/highlight_alpha = 0.5
+shader_parameter/main_color = Color(1.0416491, 0, 1.6197081, 1)
+shader_parameter/highlight_color = Color(0, 4.3302517, 4.3302517, 1)
+shader_parameter/glow = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_msbtm")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hkv5"]
+radius = 69.354164
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_msbtm"]
+shader = ExtResource("3_6hkv5")
+shader_parameter/radius = 0.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mkxn7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 45.86
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 4.0
+
+[node name="BubblePickup" type="Node2D" unique_id=1153508856]
+script = ExtResource("1_mkxn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248828190]
+material = SubResource("ShaderMaterial_pp0vw")
+texture = ExtResource("1_4gcic")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2090899909]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=151677967]
+shape = SubResource("CircleShape2D_6hkv5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1626481700]
+material = SubResource("ShaderMaterial_msbtm")
+emitting = false
+amount = 3
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mkxn7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

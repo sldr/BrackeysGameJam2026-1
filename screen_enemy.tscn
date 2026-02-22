@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c8sy5xnqdpmh3"]
+
+[ext_resource type="Script" uid="uid://df7s5v0iimmnp" path="res://HatGuyEnemy.cs" id="1_s0lat"]
+[ext_resource type="Texture2D" uid="uid://3dgxd2855dc0" path="res://ScreenEnemy/ScreenEnemy.png" id="1_wtsln"]
+[ext_resource type="Texture2D" uid="uid://rkqhu3tp48s8" path="res://ScreenEnemy/ScreenEnemy1.png" id="2_s0lat"]
+[ext_resource type="Texture2D" uid="uid://d0yw10xcb1gjj" path="res://ScreenEnemy/ScreenEnemy2.png" id="3_gl2mu"]
+[ext_resource type="Texture2D" uid="uid://d0wdc3jvyo7ln" path="res://ScreenEnemy/ScreenEnemy3.png" id="4_hwffa"]
+[ext_resource type="Texture2D" uid="uid://cdufryp4x8gfi" path="res://ScreenEnemy/ScreenEnemy4.png" id="5_8tchx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jkqa"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("2_s0lat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gl2mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hwffa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8tchx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtsln"]
+size = Vector2(54, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0lat"]
+size = Vector2(58, 68)
+
+[node name="ScreenEnemy" type="StaticBody2D" unique_id=919672736 groups=["enemies"]]
+script = ExtResource("1_s0lat")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=388240747]
+scale = Vector2(2, 2)
+texture = ExtResource("1_wtsln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1263488593]
+modulate = Color(1.5720325, 1.5720325, 1.5720325, 1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0jkqa")
+autoplay = "default"
+frame_progress = 0.30110464
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1639592361]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_wtsln")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=595172118]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1816669490]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_s0lat")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

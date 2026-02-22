@@ -16,7 +16,7 @@ shader_parameter/radius = 0.5
 shader_parameter/width = 0.5
 shader_parameter/highlight_center = Vector2(0.245, 0.765)
 shader_parameter/highlight_alpha = 0.6290000298775
-shader_parameter/main_color = Color(0.14901961, 0.654902, 0.9254902, 1)
+shader_parameter/main_color = Color(0.34966576, 1.3641464, 1.9061762, 1)
 shader_parameter/highlight_color = Color(0.9882353, 0, 0.6627451, 1)
 shader_parameter/glow = 0.50000002375
 shader_parameter/noise = SubResource("NoiseTexture2D_ft0uh")
@@ -30,14 +30,14 @@ curve = SubResource("Curve_3evwq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3evwq"]
 particle_flag_disable_z = true
-emission_shape_scale = Vector3(100, 100, 1)
+emission_shape_scale = Vector3(300, 100, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 angle_min = -720.0
 angle_max = 720.0
 gravity = Vector3(0, -98, 0)
-scale_min = 0.9
-scale_max = 0.9
+scale_min = 0.01
+scale_max = 0.099999994
 scale_curve = SubResource("CurveTexture_ft0uh")
 turbulence_enabled = true
 
@@ -45,9 +45,7 @@ turbulence_enabled = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1667435556]
 material = SubResource("ShaderMaterial_ob0ce")
-amount = 2
-amount_ratio = 0.5635
+amount = 100
 texture = ExtResource("2_mvlag")
-lifetime = 22.96
-collision_base_size = 5.65
+lifetime = 15.0
 process_material = SubResource("ParticleProcessMaterial_3evwq")
