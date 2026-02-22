@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b7fhia8pfxt43" path="res://bubble_pickup.tscn" id="14_1tw00"]
 [ext_resource type="PackedScene" uid="uid://c8sy5xnqdpmh3" path="res://screen_enemy.tscn" id="15_rx2n0"]
 [ext_resource type="PackedScene" uid="uid://bt0mc0ecpwggo" path="res://leaf_pickup.tscn" id="16_1r2jd"]
-[ext_resource type="Texture2D" uid="uid://i86dt14spsyx" path="res://MineEnemy.png" id="17_d0i25"]
+[ext_resource type="PackedScene" uid="uid://bddckj4prw0j5" path="res://mine_enemy.tscn" id="17_d0i25"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4hw36"]
 
@@ -536,50 +536,57 @@ rotation = -3.1415925
 position = Vector2(2971.9998, 760.9998)
 rotation = -3.1415925
 
-[node name="MineEnemy" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=966743237]
-position = Vector2(12324, 911.9989)
+[node name="MineEnemy" parent="SceneRootNode2D/WaterBiome" unique_id=1408628924 instance=ExtResource("17_d0i25")]
+position = Vector2(12492, 905.9989)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy2" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=800782941]
-position = Vector2(11828, 989.9989)
+[node name="MineEnemy2" parent="SceneRootNode2D/WaterBiome" unique_id=1475564373 instance=ExtResource("17_d0i25")]
+position = Vector2(11820, 973.99896)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy3" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=1773588618]
-position = Vector2(11311, 1051.999)
+[node name="MineEnemy3" parent="SceneRootNode2D/WaterBiome" unique_id=657639765 instance=ExtResource("17_d0i25")]
+position = Vector2(11143, 1048.999)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy4" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=839321411]
-position = Vector2(10354, 1142.9991)
+[node name="MineEnemy4" parent="SceneRootNode2D/WaterBiome" unique_id=1533054424 instance=ExtResource("17_d0i25")]
+position = Vector2(10571, 1066.999)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy5" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=154478941]
-position = Vector2(8445, 1212.9993)
+[node name="MineEnemy5" parent="SceneRootNode2D/WaterBiome" unique_id=676558336 instance=ExtResource("17_d0i25")]
+position = Vector2(10189, 1144.999)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy6" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=764325348]
-position = Vector2(7427, 1388.9994)
+[node name="MineEnemy6" parent="SceneRootNode2D/WaterBiome" unique_id=1267598333 instance=ExtResource("17_d0i25")]
+position = Vector2(9602, 1182.9991)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy7" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=1359566164]
-position = Vector2(6668, 1553.9995)
+[node name="MineEnemy7" parent="SceneRootNode2D/WaterBiome" unique_id=734504250 instance=ExtResource("17_d0i25")]
+position = Vector2(8614, 1206.9993)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy8" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=1317247717]
-position = Vector2(6006.9995, 1644.9995)
+[node name="MineEnemy8" parent="SceneRootNode2D/WaterBiome" unique_id=1955699812 instance=ExtResource("17_d0i25")]
+position = Vector2(7718, 1303.9994)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
 
-[node name="MineEnemy9" type="Sprite2D" parent="SceneRootNode2D/WaterBiome" unique_id=1684915187]
-position = Vector2(3086.9995, 1344.9999)
+[node name="MineEnemy9" parent="SceneRootNode2D/WaterBiome" unique_id=909021244 instance=ExtResource("17_d0i25")]
+position = Vector2(7149.9995, 1426.9991)
 rotation = -3.1415925
-texture = ExtResource("17_d0i25")
+
+[node name="MineEnemy10" parent="SceneRootNode2D/WaterBiome" unique_id=1189633029 instance=ExtResource("17_d0i25")]
+position = Vector2(6512.9995, 1584.9995)
+rotation = -3.1415925
+
+[node name="MineEnemy11" parent="SceneRootNode2D/WaterBiome" unique_id=1986951726 instance=ExtResource("17_d0i25")]
+position = Vector2(6014.9995, 1643.9994)
+rotation = -3.1415925
+
+[node name="MineEnemy12" parent="SceneRootNode2D/WaterBiome" unique_id=160667047 instance=ExtResource("17_d0i25")]
+position = Vector2(3645, 1306.9999)
+rotation = -3.1415925
+
+[node name="MineEnemy13" parent="SceneRootNode2D/WaterBiome" unique_id=915284210 instance=ExtResource("17_d0i25")]
+position = Vector2(2801, 1214.9996)
+rotation = -3.1415925
 
 [node name="WoodlandsBiome" type="Node2D" parent="SceneRootNode2D" unique_id=1834578182]
 

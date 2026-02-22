@@ -53,7 +53,7 @@ script = ExtResource("1_sb48q")
 [node name="Pivot" parent="." unique_id=105369423 instance=ExtResource("4_t88pq")]
 
 [node name="Player" parent="." unique_id=1355204698 instance=ExtResource("2_xkndl")]
-position = Vector2(240, 10510)
+position = Vector2(265, 9747)
 scale = Vector2(2, 2)
 TakeoffAnimationSpeed = 1.0
 

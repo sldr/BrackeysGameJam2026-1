@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bddckj4prw0j5"]
 
-[ext_resource type="Script" uid="uid://df7s5v0iimmnp" path="res://HatGuyEnemy.cs" id="1_a6lty"]
-[ext_resource type="Texture2D" uid="uid://i86dt14spsyx" path="res://MineEnemy.png" id="1_my07l"]
+[ext_resource type="Script" uid="uid://df7s5v0iimmnp" path="res://HatGuyEnemy.cs" id="1_52kif"]
+[ext_resource type="Texture2D" uid="uid://i86dt14spsyx" path="res://MineEnemy.png" id="2_e85sk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kt10g"]
 radius = 39.115215
@@ -9,11 +9,11 @@ radius = 39.115215
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6lty"]
 radius = 43.56604
 
-[node name="MineEnemy" type="StaticBody2D" unique_id=1408628924]
-script = ExtResource("1_a6lty")
+[node name="MineEnemy" type="StaticBody2D" unique_id=1408628924 groups=["enemies"]]
+script = ExtResource("1_52kif")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1015681312]
-texture = ExtResource("1_my07l")
+texture = ExtResource("2_e85sk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646622052]
 shape = SubResource("CircleShape2D_kt10g")
